@@ -736,6 +736,7 @@ ul { list-style: none; }
   text-align: center;
   position: relative;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .showcase::before {
@@ -895,10 +896,24 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   color: var(--bone);
-  font-size: 14px;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
   transition: border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
   flex-shrink: 0;
+}
+
+/* CSS triangle replaces emoji glyph */
+.wave-play::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent var(--bone);
+  margin-left: 2px;
 }
 
 .wave-play:hover {
@@ -1442,6 +1457,13 @@ ul { list-style: none; }
   .nav-cta { padding: 12px 24px; min-height: 44px; }
   .faq-question { padding: 24px 0; min-height: 56px; }
 
+  /* Remove will-change on mobile to avoid scroll jank */
+  .nav, .btn-primary, .btn-secondary, .nav-cta, .testimonial-card,
+  .feature-card, .stat-card, .problem-card, .showcase-demo, .mobile-menu,
+  .faq-icon, .hero-content > *, .hero-scroll {
+    will-change: auto;
+  }
+
   /* Smooth section transitions */
   .section-heading { font-size: clamp(30px, 7vw, 48px); }
   .problem-card { padding: 36px; }
@@ -1922,18 +1944,20 @@ ul { list-style: none; }
 
   window.addEventListener('scroll', handleNavScroll, { passive: true });
 
-  /* ========== HERO PARALLAX (subtle) ========== */
+  /* ========== HERO PARALLAX (subtle, desktop only) ========== */
   const heroContent = document.querySelector('.hero-content');
   const heroSection = document.querySelector('.hero');
+  const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (heroContent && heroSection) {
+  if (heroContent && heroSection && !isTouchDevice && !prefersReducedMotion) {
     const handleHeroParallax = rafThrottle(() => {
       const scrollY = window.scrollY;
       const heroH = heroSection.offsetHeight;
       if (scrollY < heroH) {
         const progress = scrollY / heroH;
-        const yOffset = scrollY * 0.25;
-        const opacity = 1 - progress * 0.6;
+        const yOffset = scrollY * 0.2;
+        const opacity = 1 - progress * 0.5;
         heroContent.style.transform = `translate3d(0, ${yOffset}px, 0)`;
         heroContent.style.opacity = Math.max(0, opacity);
       }
