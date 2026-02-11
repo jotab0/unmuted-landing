@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unmuted — Brand Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bone: #F2EDE4;
+  --bone-light: #F8F5F0;
+  --bone-dark: #E8E0D4;
+  --cream: #FAF7F2;
+  --ivory: #FFFDF8;
+  --linen: #EDE7DB;
+  --sand: #D4C9B8;
+  --taupe: #B8A99A;
+  --warm-grey: #9A8E80;
+  --stone: #7A7068;
+  --earth: #5C534A;
+  --espresso: #3D352E;
+  --deep: #2A2420;
+  --black: #1C1814;
+  --white: #FFFEF9;
+  --blush: #E8CFC0;
+  --rose-muted: #C4A99A;
+  --terracotta: #C08B70;
+  --sage: #A8B5A0;
+  --sky-pale: #B8C8D4;
+
+  --font-display: 'Playfair Display', serif;
+  --font-editorial: 'Cormorant Garamond', serif;
+  --font-serif: 'Libre Baskerville', serif;
+  --font-sans: 'Karla', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--deep);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--blush);
+  color: var(--deep);
+}
+
+/* ========== NAV ========== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(250, 247, 242, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--bone-dark);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--deep);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--warm-grey);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.4s;
+}
+
+.nav-links a:hover { color: var(--deep); }
+
+/* ========== SECTIONS ========== */
+.section {
+  padding: 120px 80px;
+  position: relative;
+}
+
+.section-number {
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--taupe);
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+.section-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-desc {
+  font-family: var(--font-editorial);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--stone);
+  max-width: 580px;
+  line-height: 1.8;
+}
+
+.divider {
+  height: 1px;
+  background: var(--bone-dark);
+  margin: 0 80px;
+}
+
+.thin-line {
+  width: 60px;
+  height: 1px;
+  background: var(--sand);
+  margin: 40px 0;
+}
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 160px 60px 120px;
+  position: relative;
+  background: var(--ivory);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(232,207,192,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(168,181,160,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-overline {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 48px;
+  font-weight: 500;
+  position: relative;
+  opacity: 0;
+  animation: softReveal 1s ease forwards 0.3s;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 10vw, 140px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  color: var(--black);
+  margin-bottom: 16px;
+  position: relative;
+  opacity: 0;
+  animation: softReveal 1s ease forwards 0.5s;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  display: block;
+  font-size: 0.85em;
+  color: var(--earth);
+}
+
+.hero-line {
+  width: 80px;
+  height: 1px;
+  background: var(--sand);
+  margin: 40px auto;
+  opacity: 0;
+  animation: softReveal 1s ease forwards 0.7s;
+}
+
+.hero-sub {
+  font-family: var(--font-editorial);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 300;
+  color: var(--stone);
+  max-width: 500px;
+  line-height: 1.8;
+  font-style: italic;
+  opacity: 0;
+  animation: softReveal 1s ease forwards 0.9s;
+}
+
+.hero-badge {
+  margin-top: 64px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 400;
+  opacity: 0;
+  animation: softReveal 1s ease forwards 1.1s;
+}
+
+@keyframes softReveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== BRAND STORY ========== */
+.brand-story { background: var(--cream); }
+
+.story-intro {
+  max-width: 700px;
+  margin-bottom: 80px;
+}
+
+.story-intro blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+.story-intro cite {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-style: normal;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--bone-dark);
+  border: 1px solid var(--bone-dark);
+}
+
+.story-card {
+  padding: 56px 48px;
+  background: var(--cream);
+  transition: background 0.5s;
+}
+
+.story-card:hover { background: var(--ivory); }
+
+.story-card h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+
+.story-card p {
+  font-family: var(--font-editorial);
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.85;
+}
+
+.story-card p strong {
+  color: var(--earth);
+  font-weight: 600;
+}
+
+/* ========== LOGO ========== */
+.logo-section { background: var(--ivory); }
+
+.logo-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 72px;
+}
+
+.logo-card {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid var(--bone-dark);
+  transition: all 0.5s;
+}
+
+.logo-card:hover { border-color: var(--sand); }
+
+.logo-card.on-cream { background: var(--cream); }
+.logo-card.on-ivory { background: var(--ivory); }
+.logo-card.on-dark  { background: var(--deep); }
+.logo-card.on-linen { background: var(--linen); }
+
+.logo-wordmark {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 42px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.logo-card.on-cream .logo-wordmark,
+.logo-card.on-ivory .logo-wordmark,
+.logo-card.on-linen .logo-wordmark { color: var(--black); }
+
+.logo-card.on-dark .logo-wordmark { color: var(--bone); }
+
+.logo-tagline {
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 4px;
+  margin-top: 12px;
+  text-transform: lowercase;
+}
+
+.logo-card.on-cream .logo-tagline,
+.logo-card.on-ivory .logo-tagline,
+.logo-card.on-linen .logo-tagline { color: var(--stone); }
+
+.logo-card.on-dark .logo-tagline { color: var(--taupe); }
+
+.logo-label {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.logo-card.on-cream .logo-label { color: var(--taupe); }
+.logo-card.on-ivory .logo-label { color: var(--taupe); }
+.logo-card.on-dark .logo-label  { color: var(--warm-grey); }
+.logo-card.on-linen .logo-label { color: var(--taupe); }
+
+/* Logo alternate: italic */
+.logo-italic .logo-wordmark {
+  font-style: italic;
+  letter-spacing: 6px;
+}
+
+/* Rules */
+.logo-rules {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--bone-dark);
+  margin-top: 48px;
+  border: 1px solid var(--bone-dark);
+}
+
+.rule-card {
+  background: var(--ivory);
+  padding: 36px;
+}
+
+.rule-card h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--black);
+}
+
+.rule-card p {
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  color: var(--stone);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ========== COLORS ========== */
+.colors-section { background: var(--cream); }
+
+.color-palette-row {
+  margin-top: 72px;
+}
+
+.color-group-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.color-strip {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--bone-dark);
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.color-chip {
+  flex: 1;
+  transition: flex 0.5s ease;
+  cursor: default;
+}
+
+.color-chip:hover { flex: 1.8; }
+
+.color-chip-swatch {
+  height: 180px;
+}
+
+.color-chip-info {
+  padding: 20px 16px;
+  background: var(--ivory);
+  border-top: 1px solid var(--bone-dark);
+}
+
+.color-chip-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.color-chip-hex {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--warm-grey);
+  letter-spacing: 1px;
+}
+
+/* Accent swatches */
+.accent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--bone-dark);
+  border: 1px solid var(--bone-dark);
+  margin-bottom: 48px;
+}
+
+.accent-chip {
+  background: var(--ivory);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: background 0.4s;
+}
+
+.accent-chip:hover { background: var(--cream); }
+
+.accent-dot {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.accent-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.accent-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.accent-hex {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--warm-grey);
+  margin-top: 2px;
+}
+
+.accent-use {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--stone);
+  margin-top: 4px;
+}
+
+/* ========== TYPOGRAPHY ========== */
+.type-section { background: var(--ivory); }
+
+.type-showcase { margin-top: 72px; }
+
+.type-family {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--bone-dark);
+}
+
+.type-family:first-child { border-top: 1px solid var(--bone-dark); }
+
+.type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+
+.type-role {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 500;
+}
+
+.type-foundry {
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--warm-grey);
+}
+
+.type-sample-display {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+.type-sample-display em { font-style: italic; }
+
+.type-sample-editorial {
+  font-family: var(--font-editorial);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--earth);
+  max-width: 700px;
+  font-style: italic;
+}
+
+.type-sample-body {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--stone);
+  max-width: 620px;
+}
+
+.type-sample-sans {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--warm-grey);
+  max-width: 600px;
+  letter-spacing: 0.3px;
+}
+
+.type-weights {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.weight-tag {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--taupe);
+  padding: 6px 16px;
+  border: 1px solid var(--bone-dark);
+  letter-spacing: 1px;
+}
+
+/* Type Scale */
+.type-scale { margin-top: 60px; }
+
+.scale-row {
+  display: flex;
+  align-items: baseline;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--bone-dark);
+  gap: 40px;
+}
+
+.scale-row:first-child { border-top: 1px solid var(--bone-dark); }
+
+.scale-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.scale-size {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  color: var(--warm-grey);
+  font-style: italic;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+/* ========== VOICE & TONE ========== */
+.voice-section { background: var(--cream); }
+
+.voice-manifesto {
+  max-width: 680px;
+  margin-bottom: 80px;
+}
+
+.voice-manifesto p {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 2;
+  color: var(--earth);
+  margin-bottom: 20px;
+}
+
+.voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--bone-dark);
+  border: 1px solid var(--bone-dark);
+}
+
+.voice-card {
+  background: var(--cream);
+  padding: 48px;
+  transition: background 0.5s;
+}
+
+.voice-card:hover { background: var(--ivory); }
+
+.voice-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 16px;
+  color: var(--black);
+}
+
+.voice-card > p {
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.voice-example {
+  padding: 20px 0;
+  border-top: 1px solid var(--bone-dark);
+}
+
+.voice-example-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.voice-example-label.yes { color: var(--sage); }
+.voice-example-label.no  { color: var(--rose-muted); }
+
+.voice-example p {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--earth);
+  line-height: 1.7;
+}
+
+/* ========== IMAGERY ========== */
+.imagery-section { background: var(--ivory); }
+
+.imagery-principles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--bone-dark);
+  border: 1px solid var(--bone-dark);
+  margin-top: 72px;
+}
+
+.img-principle {
+  background: var(--ivory);
+  padding: 48px 36px;
+  transition: background 0.5s;
+}
+
+.img-principle:hover { background: var(--cream); }
+
+.img-principle h4 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 16px;
+  color: var(--black);
+}
+
+.img-principle p {
+  font-family: var(--font-editorial);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.8;
+}
+
+/* Moodboard */
+.moodboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px 200px;
+  gap: 3px;
+  margin-top: 48px;
+}
+
+.mood-tile {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.mood-tile span {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255,255,255,0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.mood-tile.tall { grid-row: span 2; }
+
+.mood-tile.m1 { background: linear-gradient(135deg, var(--bone) 0%, var(--blush) 100%); }
+.mood-tile.m1 span { color: var(--earth); }
+.mood-tile.m2 { background: linear-gradient(135deg, var(--deep) 0%, var(--espresso) 100%); }
+.mood-tile.m3 { background: linear-gradient(135deg, var(--sand) 0%, var(--taupe) 100%); }
+.mood-tile.m4 { background: linear-gradient(180deg, var(--sage) 0%, rgba(168,181,160,0.6) 100%); }
+.mood-tile.m4 span { color: var(--deep); }
+.mood-tile.m5 { background: linear-gradient(135deg, var(--linen) 0%, var(--bone) 100%); }
+.mood-tile.m5 span { color: var(--earth); }
+.mood-tile.m6 { background: linear-gradient(135deg, var(--blush) 0%, var(--terracotta) 100%); }
+.mood-tile.m7 { background: linear-gradient(135deg, var(--espresso) 0%, var(--black) 100%); }
+.mood-tile.m8 { background: linear-gradient(135deg, var(--sky-pale) 0%, var(--bone) 100%); }
+.mood-tile.m8 span { color: var(--earth); }
+
+/* ========== DO / DONT ========== */
+.usage-section { background: var(--cream); }
+
+.usage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 72px;
+}
+
+.usage-col h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 32px;
+  color: var(--black);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--bone-dark);
+}
+
+.usage-col.do h3 { border-bottom-color: var(--sage); }
+.usage-col.dont h3 { border-bottom-color: var(--rose-muted); }
+
+.usage-list {
+  list-style: none;
+}
+
+.usage-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--bone-dark);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--earth);
+  line-height: 1.7;
+  padding-left: 20px;
+  position: relative;
+}
+
+.usage-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 24px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.usage-col.do .usage-list li::before { background: var(--sage); }
+.usage-col.dont .usage-list li::before { background: var(--rose-muted); }
+
+/* ========== APPLICATIONS ========== */
+.applications-section { background: var(--ivory); }
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 72px;
+}
+
+.app-card {
+  border: 1px solid var(--bone-dark);
+  overflow: hidden;
+  transition: border-color 0.4s;
+}
+
+.app-card:hover { border-color: var(--sand); }
+
+.app-preview {
+  padding: 40px 32px;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+}
+
+/* Social card */
+.social-mock {
+  width: 100%;
+  max-width: 260px;
+}
+
+.social-mock-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.social-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--linen);
+  border: 1px solid var(--bone-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--earth);
+}
+
+.social-mock-name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--black);
+}
+
+.social-mock-handle {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--warm-grey);
+}
+
+.social-mock-body {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--earth);
+}
+
+/* Email mock */
+.email-mock {
+  width: 100%;
+  max-width: 260px;
+  background: var(--white);
+  border: 1px solid var(--bone-dark);
+  padding: 28px;
+}
+
+.email-mock-from {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--warm-grey);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.email-mock-subject {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--black);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.email-mock-body {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  color: var(--stone);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.email-cta {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--deep);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Web mock */
+.web-mock {
+  width: 100%;
+  max-width: 260px;
+  background: var(--ivory);
+  border: 1px solid var(--bone-dark);
+  overflow: hidden;
+}
+
+.web-mock-bar {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--bone-dark);
+  display: flex;
+  gap: 5px;
+}
+
+.web-mock-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--bone-dark);
+}
+
+.web-mock-content {
+  padding: 28px 24px;
+}
+
+.web-mock-content h5 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--black);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.web-mock-content p {
+  font-family: var(--font-editorial);
+  font-size: 12px;
+  color: var(--stone);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.web-mock-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid var(--deep);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--deep);
+}
+
+.app-info {
+  padding: 24px 28px;
+  border-top: 1px solid var(--bone-dark);
+  background: var(--ivory);
+}
+
+.app-info h4 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.app-info p {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--stone);
+  font-style: italic;
+}
+
+/* ========== TAGLINES ========== */
+.taglines-section {
+  background: var(--linen);
+  text-align: center;
+}
+
+.tagline-primary {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  color: var(--black);
+  margin: 60px auto 24px;
+  max-width: 800px;
+}
+
+.tagline-primary span {
+  font-style: normal;
+}
+
+.tagline-sub {
+  font-family: var(--font-editorial);
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--stone);
+  margin-bottom: 60px;
+}
+
+.tagline-alts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.tagline-alt-item {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 400;
+  color: var(--earth);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--sand);
+  width: 100%;
+  max-width: 600px;
+  transition: color 0.3s;
+  cursor: default;
+}
+
+.tagline-alt-item:first-child { border-top: 1px solid var(--sand); }
+
+.tagline-alt-item:hover { color: var(--black); }
+
+.tagline-alt-item em { font-style: italic; }
+
+/* ========== FOOTER ========== */
+footer {
+  padding: 80px;
+  text-align: center;
+  background: var(--deep);
+  color: var(--taupe);
+}
+
+footer .footer-logo {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: var(--bone);
+  margin-bottom: 20px;
+}
+
+footer p {
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--warm-grey);
+  line-height: 1.8;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .section { padding: 80px 28px; }
+  nav { padding: 16px 28px; }
+  .nav-links { display: none; }
+  .hero { padding: 120px 28px 80px; }
+  .story-grid,
+  .logo-showcase,
+  .voice-grid,
+  .usage-grid { grid-template-columns: 1fr; }
+  .imagery-principles,
+  .accent-grid,
+  .app-grid { grid-template-columns: 1fr; }
+  .logo-rules { grid-template-columns: 1fr; }
+  .moodboard { grid-template-columns: 1fr 1fr; }
+  .divider { margin: 0 28px; }
+  .scale-row { flex-wrap: wrap; gap: 8px; }
+  .color-strip { flex-direction: column; }
+  .color-chip-swatch { height: 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Unmuted</div>
+  <ul class="nav-links">
+    <li><a href="#story">Essence</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#colors">Color</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#applications">Applications</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overline">Brand Guide — v1.0</div>
+  <h1>
+    Unmuted
+    <em>Brand Guide</em>
+  </h1>
+  <div class="hero-line"></div>
+  <p class="hero-sub">The identity of the AI translation agency that maintains the humanity of every voice, in every language.</p>
+  <div class="hero-badge">Confidential — Internal & Partner Use Only</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BRAND STORY -->
+<section class="section brand-story" id="story">
+  <span class="section-number">i. Brand Essence</span>
+  <h2 class="section-title">Every voice <em>deserves</em><br>to be heard</h2>
+  
+  <div class="story-intro">
+    <div class="thin-line"></div>
+    <blockquote>"Translation isn't replacing words. It's carrying a soul from one language to another."</blockquote>
+    <cite>— Unmuted Philosophy</cite>
+  </div>
+
+  <div class="story-grid">
+    <div class="story-card">
+      <h3>Mission</h3>
+      <p>To break down language barriers without breaking what makes each person unique. We believe every creator deserves to connect with the world <strong>without losing who they are</strong>.</p>
+    </div>
+    <div class="story-card">
+      <h3>Vision</h3>
+      <p>A world where language is never a limit for creative voices. Where a creator in Buenos Aires resonates in Tokyo, Seoul, and São Paulo — and <strong>still sounds like themselves</strong>.</p>
+    </div>
+    <div class="story-card">
+      <h3>Values</h3>
+      <p><strong>Authenticity above all</strong> — We preserve, never replace.<br><strong>Humanity</strong> — Technology in service of the soul.<br><strong>Radical quality</strong> — "Good enough" isn't enough.<br><strong>Cultural intelligence</strong> — Translating is adapting, not substituting.</p>
+    </div>
+    <div class="story-card">
+      <h3>Positioning</h3>
+      <p>Unmuted sits between free automated dubbing (but robotic) and expensive enterprise solutions. We are the translation service <strong>that prioritizes personality</strong> — premium quality, accessible pricing, obsessed with maintaining your essence.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LOGO -->
+<section class="section logo-section" id="logo">
+  <span class="section-number">ii. Logo System</span>
+  <h2 class="section-title">Logo</h2>
+  <p class="section-desc">The Unmuted logo uses editorial serif typography — elegant, timeless, human. No icons. Beauty lies in the letters themselves.</p>
+
+  <div class="logo-showcase">
+    <div class="logo-card on-cream">
+      <div class="logo-wordmark">Unmuted</div>
+      <div class="logo-tagline">your voice, every language</div>
+      <span class="logo-label">On Cream</span>
+    </div>
+    <div class="logo-card on-dark">
+      <div class="logo-wordmark">Unmuted</div>
+      <div class="logo-tagline">your voice, every language</div>
+      <span class="logo-label">On Dark</span>
+    </div>
+    <div class="logo-card on-linen logo-italic">
+      <div class="logo-wordmark">Unmuted</div>
+      <div class="logo-tagline">your voice, every language</div>
+      <span class="logo-label">Italic Variant</span>
+    </div>
+    <div class="logo-card on-ivory">
+      <div class="logo-wordmark" style="letter-spacing: 12px; font-size: 32px;">UNMUTED</div>
+      <span class="logo-label">Expanded Variant</span>
+    </div>
+  </div>
+
+  <div class="logo-rules">
+    <div class="rule-card">
+      <h4>Clear Space</h4>
+      <p>Maintain a minimum space equal to the height of the "U" on all sides. No element should invade this margin of respect.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Minimum Size</h4>
+      <p>Digital: 100px minimum width. Print: 25mm minimum width. Legibility and elegance are priorities.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Backgrounds</h4>
+      <p>Only on clean, neutral backgrounds from the approved palette. Never on images, patterns, or visually noisy backgrounds.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COLORS -->
+<section class="section colors-section" id="colors">
+  <span class="section-number">iii. Color System</span>
+  <h2 class="section-title">Color <em>palette</em></h2>
+  <p class="section-desc">Our palette is built on warm, neutral tones that breathe humanity. Bone is our canvas; earthy accents bring life without shouting.</p>
+
+  <div class="color-palette-row">
+    <span class="color-group-label">Base Colors</span>
+    <div class="color-strip">
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--ivory);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Ivory</div>
+          <div class="color-chip-hex">#FFFDF8</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--cream);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Cream</div>
+          <div class="color-chip-hex">#FAF7F2</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--bone);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Bone</div>
+          <div class="color-chip-hex">#F2EDE4</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--linen);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Linen</div>
+          <div class="color-chip-hex">#EDE7DB</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--sand);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Sand</div>
+          <div class="color-chip-hex">#D4C9B8</div>
+        </div>
+      </div>
+    </div>
+
+    <span class="color-group-label">Deep Tones</span>
+    <div class="color-strip">
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--taupe);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Taupe</div>
+          <div class="color-chip-hex">#B8A99A</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--stone);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Stone</div>
+          <div class="color-chip-hex">#7A7068</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--earth);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Earth</div>
+          <div class="color-chip-hex">#5C534A</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--espresso);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Espresso</div>
+          <div class="color-chip-hex">#3D352E</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background: var(--deep);"></div>
+        <div class="color-chip-info">
+          <div class="color-chip-name">Deep</div>
+          <div class="color-chip-hex">#2A2420</div>
+        </div>
+      </div>
+    </div>
+
+    <span class="color-group-label">Accents</span>
+    <div class="accent-grid">
+      <div class="accent-chip">
+        <div class="accent-dot" style="background: var(--blush);"></div>
+        <div class="accent-meta">
+          <span class="accent-name">Blush</span>
+          <span class="accent-hex">#E8CFC0</span>
+          <span class="accent-use">Warmth, closeness, the human touch</span>
+        </div>
+      </div>
+      <div class="accent-chip">
+        <div class="accent-dot" style="background: var(--terracotta);"></div>
+        <div class="accent-meta">
+          <span class="accent-name">Terracotta</span>
+          <span class="accent-hex">#C08B70</span>
+          <span class="accent-use">CTAs, warm emphasis</span>
+        </div>
+      </div>
+      <div class="accent-chip">
+        <div class="accent-dot" style="background: var(--sage);"></div>
+        <div class="accent-meta">
+          <span class="accent-name">Sage</span>
+          <span class="accent-hex">#A8B5A0</span>
+          <span class="accent-use">Success, confirmation, calm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TYPOGRAPHY -->
+<section class="section type-section" id="typography">
+  <span class="section-number">iv. Typography</span>
+  <h2 class="section-title">Type <em>system</em></h2>
+  <p class="section-desc">Four typefaces, each with a purpose. Inspired by the editorial tradition of great magazines — where every letter breathes elegance and humanity.</p>
+
+  <div class="type-showcase">
+    <div class="type-family">
+      <div class="type-header">
+        <span class="type-role">Display · Headlines</span>
+        <span class="type-foundry">Playfair Display by Claus Eggers Sørensen</span>
+      </div>
+      <div class="type-sample-display">
+        Your voice,<br><em>every language.</em>
+      </div>
+      <div class="type-weights">
+        <span class="weight-tag">Regular 400</span>
+        <span class="weight-tag">Medium 500</span>
+        <span class="weight-tag">Bold 700</span>
+        <span class="weight-tag">Black 900</span>
+        <span class="weight-tag">Italic</span>
+      </div>
+    </div>
+
+    <div class="type-family">
+      <div class="type-header">
+        <span class="type-role">Editorial · Subtitles & quotes</span>
+        <span class="type-foundry">Cormorant Garamond by Christian Thalmann</span>
+      </div>
+      <div class="type-sample-editorial">
+        Translation isn't replacing words. It's carrying a soul from one language to another, with all its color, rhythm, and truth.
+      </div>
+      <div class="type-weights">
+        <span class="weight-tag">Light 300</span>
+        <span class="weight-tag">Regular 400</span>
+        <span class="weight-tag">Medium 500</span>
+        <span class="weight-tag">SemiBold 600</span>
+        <span class="weight-tag">Italic</span>
+      </div>
+    </div>
+
+    <div class="type-family">
+      <div class="type-header">
+        <span class="type-role">Body · Long text</span>
+        <span class="type-foundry">Libre Baskerville by Impallari Type</span>
+      </div>
+      <div class="type-sample-body">
+        We believe every creator deserves to connect with global audiences without losing what makes them special. Our AI technology doesn't replace humanity — it amplifies it, takes it further, makes it accessible in thirty languages.
+      </div>
+      <div class="type-weights">
+        <span class="weight-tag">Regular 400</span>
+        <span class="weight-tag">Bold 700</span>
+        <span class="weight-tag">Italic</span>
+      </div>
+    </div>
+
+    <div class="type-family">
+      <div class="type-header">
+        <span class="type-role">UI · Navigation & Labels</span>
+        <span class="type-foundry">Karla by Jonathan Pinhorn</span>
+      </div>
+      <div class="type-sample-sans">
+        Used for navigation, buttons, labels, metadata, and interface elements. Clear, functional, and warm — without the coldness of technical sans-serifs. Karla brings closeness without sacrificing legibility.
+      </div>
+      <div class="type-weights">
+        <span class="weight-tag">Light 300</span>
+        <span class="weight-tag">Regular 400</span>
+        <span class="weight-tag">Medium 500</span>
+        <span class="weight-tag">SemiBold 600</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Type Scale -->
+  <div class="type-scale">
+    <div class="scale-row">
+      <span class="scale-label">Display</span>
+      <span class="scale-size">72–120px</span>
+      <span style="font-family: var(--font-display); font-size: 48px; font-weight: 400; color: var(--black);">Unmuted</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">Heading 1</span>
+      <span class="scale-size">40–60px</span>
+      <span style="font-family: var(--font-display); font-size: 36px; font-weight: 400; color: var(--black);">Section Title</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">Heading 2</span>
+      <span class="scale-size">28–36px</span>
+      <span style="font-family: var(--font-display); font-size: 28px; font-weight: 400; font-style: italic; color: var(--black);">Editorial Subtitle</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">Subtitle</span>
+      <span class="scale-size">20–24px</span>
+      <span style="font-family: var(--font-editorial); font-size: 22px; font-weight: 300; font-style: italic; color: var(--earth);">Descriptions and quotes</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">Body</span>
+      <span class="scale-size">16–18px</span>
+      <span style="font-family: var(--font-serif); font-size: 17px; color: var(--earth);">Main reading text.</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">Caption</span>
+      <span class="scale-size">13–14px</span>
+      <span style="font-family: var(--font-serif); font-size: 14px; color: var(--stone); font-style: italic;">Context and side notes</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">Label</span>
+      <span class="scale-size">10–12px</span>
+      <span style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--taupe);">Section Label</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VOICE & TONE -->
+<section class="section voice-section" id="voice">
+  <span class="section-number">v. Voice & Tone</span>
+  <h2 class="section-title">How we <em>speak</em></h2>
+  
+  <div class="voice-manifesto">
+    <div class="thin-line"></div>
+    <p>Unmuted speaks like someone who deeply understands both technology and people. We're not a tech company pretending to understand creators — we're people who love human voices and use technology to protect them.</p>
+    <p>Our tone is warm, close, cultured without being pretentious. We speak with the quiet confidence of those who know what they do, and the humility of those who respect each person's voice more than their own.</p>
+  </div>
+
+  <div class="voice-grid">
+    <div class="voice-card">
+      <h3>Warm, not cold</h3>
+      <p>We speak as people, not machines. Every communication conveys that there are human beings behind it, that we care.</p>
+      <div class="voice-example">
+        <div class="voice-example-label yes">Do</div>
+        <p>"Your Spanish audience will feel your energy, your humor, your essence."</p>
+      </div>
+      <div class="voice-example">
+        <div class="voice-example-label no">Don't</div>
+        <p>"Our processing pipeline maintains the vocal parameters of the input."</p>
+      </div>
+    </div>
+
+    <div class="voice-card">
+      <h3>Close, not distant</h3>
+      <p>We understand the creator world — the algorithm, the metrics, the pressure to grow. We speak their language.</p>
+      <div class="voice-example">
+        <div class="voice-example-label yes">Do</div>
+        <p>"Stop losing international watch time to dubbing that sounds like a robot."</p>
+      </div>
+      <div class="voice-example">
+        <div class="voice-example-label no">Don't</div>
+        <p>"Optimize your multilingual content distribution pipeline."</p>
+      </div>
+    </div>
+
+    <div class="voice-card">
+      <h3>Honest, not salesy</h3>
+      <p>AI isn't magic. We're transparent about what we can and can't do. We promise less, deliver more.</p>
+      <div class="voice-example">
+        <div class="voice-example-label yes">Do</div>
+        <p>"AI does 90% — our human editors perfect the 10% that matters."</p>
+      </div>
+      <div class="voice-example">
+        <div class="voice-example-label no">Don't</div>
+        <p>"100% perfect translation with cutting-edge AI."</p>
+      </div>
+    </div>
+
+    <div class="voice-card">
+      <h3>Cultured, not pretentious</h3>
+      <p>We like beautiful, precise language, but never use it to intimidate or distance. Elegance can also be accessible.</p>
+      <div class="voice-example">
+        <div class="voice-example-label yes">Do</div>
+        <p>"Every voice has a rhythm, a color, a truth. We carry it to another language without losing anything."</p>
+      </div>
+      <div class="voice-example">
+        <div class="voice-example-label no">Don't</div>
+        <p>"Our localization service leverages intercultural synergies."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- IMAGERY -->
+<section class="section imagery-section">
+  <span class="section-number">vi. Visual Language</span>
+  <h2 class="section-title">Imagery <em>& atmosphere</em></h2>
+  <p class="section-desc">Our visual imagery breathes humanity. Warmth over coldness. Natural textures over plastic surfaces. Real people over generic illustrations.</p>
+
+  <div class="imagery-principles">
+    <div class="img-principle">
+      <h4>Photography</h4>
+      <p>Real creators in authentic environments. Natural, warm light. Genuine diversity, not forced. Sincere expressions — laughter, concentration, passion. Never stock photos with headsets.</p>
+    </div>
+    <div class="img-principle">
+      <h4>Textures</h4>
+      <p>Paper, linen, light wood, ceramics. Textures that feel tactile and human. Subtle paper grains in backgrounds. Everything that reminds us that behind technology there are real hands and voices.</p>
+    </div>
+    <div class="img-principle">
+      <h4>Composition</h4>
+      <p>Generous space. Room to breathe. Elegant asymmetry inspired by editorial design. Images don't compete with text — they coexist in harmony.</p>
+    </div>
+  </div>
+
+  <div class="moodboard">
+    <div class="mood-tile m1 tall"><span>Warmth</span></div>
+    <div class="mood-tile m2"><span>Depth</span></div>
+    <div class="mood-tile m3"><span>Texture</span></div>
+    <div class="mood-tile m4"><span>Nature</span></div>
+    <div class="mood-tile m5"><span>Softness</span></div>
+    <div class="mood-tile m6 tall"><span>Humanity</span></div>
+    <div class="mood-tile m7"><span>Contrast</span></div>
+    <div class="mood-tile m8"><span>Serenity</span></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DO / DONT -->
+<section class="section usage-section">
+  <span class="section-number">vii. Brand Usage</span>
+  <h2 class="section-title">What we do <em>& what we don't</em></h2>
+  <p class="section-desc">Consistency builds trust. These rules keep Unmuted elegant and human at every touchpoint.</p>
+
+  <div class="usage-grid">
+    <div class="usage-col do">
+      <h3>Do</h3>
+      <ul class="usage-list">
+        <li>Always write "Unmuted" — one word, capital U</li>
+        <li>Use warm, neutral backgrounds as base: ivory, cream, bone, linen</li>
+        <li>Prioritize Playfair Display in italic for editorial moments</li>
+        <li>Leave generous space — air is part of the design</li>
+        <li>Use real photography with natural light and human warmth</li>
+        <li>Write in a warm, close, and honest tone</li>
+        <li>Combine editorial elegance with accessible language</li>
+        <li>Use accents (blush, terracotta, sage) sparingly and purposefully</li>
+      </ul>
+    </div>
+    <div class="usage-col dont">
+      <h3>Don't</h3>
+      <ul class="usage-list">
+        <li>Never use dark backgrounds as the dominant color — we're not tech bros</li>
+        <li>Never use generic sans-serif fonts (Inter, Roboto, Arial)</li>
+        <li>Never use saturated colors, neon, or aggressive gradients</li>
+        <li>Never use stock photos of robots, circuits, or AI hands</li>
+        <li>Never use corporate jargon: "leverage", "synergy", "best-in-class"</li>
+        <li>Never promise AI perfection — always be honest</li>
+        <li>Never design with excessive density — respect the space</li>
+        <li>Never lose humanity — we are people serving people</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- APPLICATIONS -->
+<section class="section applications-section" id="applications">
+  <span class="section-number">viii. Applications</span>
+  <h2 class="section-title">The brand <em>in action</em></h2>
+  <p class="section-desc">How Unmuted feels at every touchpoint — consistent, elegant, always human.</p>
+
+  <div class="app-grid">
+    <div class="app-card">
+      <div class="app-preview">
+        <div class="social-mock">
+          <div class="social-mock-header">
+            <div class="social-avatar">U</div>
+            <div>
+              <div class="social-mock-name">Unmuted</div>
+              <div class="social-mock-handle">@unmuted</div>
+            </div>
+          </div>
+          <div class="social-mock-body">Your next million subscribers don't speak your language. But they'll hear your voice. Same laugh, same energy, same soul. ✦</div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Social Media</h4>
+        <p>Close, poetic, authentic. No excessive emojis.</p>
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview">
+        <div class="email-mock">
+          <div class="email-mock-from">From: team@unmuted.com</div>
+          <div class="email-mock-subject">Your Portuguese dub is ready</div>
+          <div class="email-mock-body">Hey — your latest video now sounds like you in Portuguese. Listen to it, adjust if you want, and publish when you're ready.</div>
+          <div class="email-cta">Listen Preview →</div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Email</h4>
+        <p>Direct, warm, informative. Light background.</p>
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview">
+        <div class="web-mock">
+          <div class="web-mock-bar">
+            <div class="web-mock-dot"></div>
+            <div class="web-mock-dot"></div>
+            <div class="web-mock-dot"></div>
+          </div>
+          <div class="web-mock-content">
+            <h5>Sound like you, everywhere.</h5>
+            <p>AI translation that preserves your personality. Start dubbing in 30+ languages today.</p>
+            <div class="web-mock-btn">Start Free →</div>
+          </div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Website</h4>
+        <p>Editorial, luminous, with generous space and elegant typography.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TAGLINES -->
+<section class="section taglines-section">
+  <span class="section-number">ix. Taglines & Messages</span>
+  
+  <div class="tagline-primary">
+    <span>Your voice,</span><br>every language.
+  </div>
+  <p class="tagline-sub">Primary tagline — for heroes, advertising, and brand moments.</p>
+
+  <div class="tagline-alts">
+    <div class="tagline-alt-item">Sound like <em>you</em>, everywhere.</div>
+    <div class="tagline-alt-item">We translate content, not <em>personality</em>.</div>
+    <div class="tagline-alt-item">Every voice deserves to be <em>heard</em>.</div>
+    <div class="tagline-alt-item">Your essence, <em>without borders</em>.</div>
+    <div class="tagline-alt-item">The world is <em>listening</em>.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Unmuted</div>
+  <p>Brand Guide v1.0 — February 2026</p>
+  <p>Confidential. Internal and authorized partner use only.</p>
+</footer>
+
+</body>
+</html>

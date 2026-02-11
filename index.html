@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unmuted — Your Voice, Every Language</title>
+<meta name="description" content="AI translation that preserves your personality. Dub your content in 30+ languages while keeping your voice, your energy, your soul.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   UNMUTED LANDING PAGE — CSS
+   Brand: Warm, editorial, human
+   ======================================== */
+
+:root {
+  --bone: #F2EDE4;
+  --bone-light: #F8F5F0;
+  --bone-dark: #E8E0D4;
+  --cream: #FAF7F2;
+  --ivory: #FFFDF8;
+  --linen: #EDE7DB;
+  --sand: #D4C9B8;
+  --taupe: #B8A99A;
+  --warm-grey: #9A8E80;
+  --stone: #7A7068;
+  --earth: #5C534A;
+  --espresso: #3D352E;
+  --deep: #2A2420;
+  --black: #1C1814;
+  --white: #FFFEF9;
+  --blush: #E8CFC0;
+  --rose-muted: #C4A99A;
+  --terracotta: #C08B70;
+  --sage: #A8B5A0;
+  --sky-pale: #B8C8D4;
+
+  --font-display: 'Playfair Display', serif;
+  --font-editorial: 'Cormorant Garamond', serif;
+  --font-serif: 'Libre Baskerville', serif;
+  --font-sans: 'Karla', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--deep);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--blush);
+  color: var(--deep);
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { border: none; cursor: pointer; background: none; font-family: inherit; }
+ul { list-style: none; }
+
+/* ========== NAVIGATION ========== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 60px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s, background 0.4s;
+}
+
+.nav.scrolled {
+  border-bottom-color: var(--bone-dark);
+  background: rgba(250, 247, 242, 0.95);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--deep);
+}
+
+.nav-center {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-center a {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-center a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--deep);
+  transition: width 0.3s;
+}
+
+.nav-center a:hover { color: var(--deep); }
+.nav-center a:hover::after { width: 100%; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-login {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-login:hover { color: var(--deep); }
+
+.nav-cta {
+  padding: 10px 28px;
+  background: var(--deep);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--espresso);
+  transform: translateY(-1px);
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 1.5px;
+  background: var(--deep);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 140px 60px 100px;
+  background: var(--ivory);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 40%, rgba(232,207,192,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 60%, rgba(168,181,160,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 90%, rgba(184,200,212,0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 900px;
+}
+
+.hero-overline {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 500;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -2px;
+  color: var(--black);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+}
+
+.hero h1 em {
+  font-style: italic;
+  display: block;
+  color: var(--earth);
+  font-size: 0.9em;
+}
+
+.hero-line {
+  width: 60px;
+  height: 1px;
+  background: var(--sand);
+  margin: 0 auto 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.55s;
+}
+
+.hero-desc {
+  font-family: var(--font-editorial);
+  font-size: clamp(18px, 2vw, 23px);
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.75;
+  font-style: italic;
+  max-width: 560px;
+  margin: 0 auto 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.65s;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.8s;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: var(--deep);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+  background: var(--espresso);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(42,36,32,0.15);
+}
+
+.btn-primary .arrow {
+  transition: transform 0.3s;
+  font-size: 14px;
+}
+
+.btn-primary:hover .arrow {
+  transform: translateX(4px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 36px;
+  border: 1px solid var(--sand);
+  color: var(--earth);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--earth);
+  color: var(--deep);
+  background: rgba(242,237,228,0.5);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1.2s;
+}
+
+.hero-scroll span {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--sand);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--earth);
+  animation: scrollPulse 2s ease infinite;
+}
+
+@keyframes scrollPulse {
+  0% { top: -100%; }
+  50% { top: 100%; }
+  100% { top: 100%; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== LOGOS / SOCIAL PROOF BAR ========== */
+.logos-bar {
+  padding: 56px 60px;
+  background: var(--cream);
+  border-top: 1px solid var(--bone-dark);
+  border-bottom: 1px solid var(--bone-dark);
+}
+
+.logos-label {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 500;
+  margin-bottom: 36px;
+}
+
+.logos-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+.logo-item {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--sand);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: color 0.4s;
+  white-space: nowrap;
+}
+
+.logo-item:hover {
+  color: var(--stone);
+}
+
+.logo-item.italic {
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 1px;
+}
+
+/* ========== SECTION SHARED ========== */
+.section {
+  padding: 120px 60px;
+  position: relative;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 500;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.section-heading em {
+  font-style: italic;
+  color: var(--earth);
+}
+
+.section-subheading {
+  font-family: var(--font-editorial);
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+.divider-line {
+  height: 1px;
+  background: var(--bone-dark);
+  margin: 0 60px;
+}
+
+/* ========== PROBLEM SECTION ========== */
+.problem {
+  background: var(--ivory);
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 72px;
+}
+
+.problem-visual {
+  position: relative;
+}
+
+.problem-card {
+  background: var(--cream);
+  border: 1px solid var(--bone-dark);
+  padding: 48px;
+  position: relative;
+}
+
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: -12px;
+  bottom: -12px;
+  border: 1px solid var(--bone-dark);
+  z-index: -1;
+}
+
+.problem-card blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+.problem-card cite {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-style: normal;
+}
+
+.problem-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--bone-dark);
+  border: 1px solid var(--bone-dark);
+  margin-top: 32px;
+}
+
+.stat-card {
+  background: var(--cream);
+  padding: 32px;
+  transition: background 0.4s;
+}
+
+.stat-card:hover { background: var(--ivory); }
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.stat-desc {
+  font-family: var(--font-editorial);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.problem-text {
+  max-width: 480px;
+}
+
+.problem-text p {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 2;
+  color: var(--earth);
+  margin-bottom: 20px;
+}
+
+.problem-text p strong {
+  color: var(--black);
+  font-weight: 700;
+}
+
+/* ========== HOW IT WORKS ========== */
+.how-it-works {
+  background: var(--cream);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--bone-dark);
+  border: 1px solid var(--bone-dark);
+  margin-top: 72px;
+}
+
+.step-card {
+  background: var(--cream);
+  padding: 56px 44px;
+  transition: background 0.5s;
+  position: relative;
+}
+
+.step-card:hover { background: var(--ivory); }
+
+.step-number {
+  font-family: var(--font-editorial);
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--bone-dark);
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.step-card:hover .step-number {
+  color: var(--blush);
+  transition: color 0.5s;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.step-desc {
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.85;
+}
+
+.step-detail {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--bone-dark);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--warm-grey);
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+}
+
+/* ========== FEATURES ========== */
+.features {
+  background: var(--ivory);
+}
+
+.features-intro {
+  max-width: 640px;
+  margin-bottom: 80px;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--bone-dark);
+  border: 1px solid var(--bone-dark);
+  margin-bottom: 1px;
+}
+
+.feature-card {
+  background: var(--ivory);
+  padding: 56px 48px;
+  transition: background 0.5s;
+}
+
+.feature-card:hover { background: var(--cream); }
+
+.feature-icon {
+  font-family: var(--font-editorial);
+  font-size: 32px;
+  font-style: italic;
+  color: var(--terracotta);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.feature-desc {
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.85;
+}
+
+/* ========== SHOWCASE / DEMO SECTION ========== */
+.showcase {
+  background: var(--deep);
+  color: var(--bone);
+  padding: 120px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(232,207,192,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 30%, rgba(168,181,160,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.showcase .section-label {
+  color: var(--warm-grey);
+}
+
+.showcase .section-heading {
+  color: var(--bone);
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.showcase .section-heading em {
+  color: var(--blush);
+}
+
+.showcase .section-subheading {
+  color: var(--warm-grey);
+  max-width: 500px;
+  margin: 0 auto 56px;
+}
+
+.showcase-demo {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--espresso);
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  position: relative;
+}
+
+.demo-bar {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.demo-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+
+.demo-content {
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+}
+
+.demo-original, .demo-translated {
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.demo-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.demo-lang-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+
+.demo-original .demo-lang-dot { background: var(--terracotta); }
+.demo-translated .demo-lang-dot { background: var(--sage); }
+
+.demo-text {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--bone);
+}
+
+.demo-note {
+  margin-top: 12px;
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--warm-grey);
+}
+
+.demo-waveform {
+  padding: 24px 48px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wave-play {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--warm-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bone);
+  font-size: 14px;
+  transition: border-color 0.3s, background 0.3s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.wave-play:hover {
+  border-color: var(--bone);
+  background: rgba(255,255,255,0.05);
+}
+
+.wave-bars {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 32px;
+}
+
+.wave-bar {
+  width: 3px;
+  background: var(--warm-grey);
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+.wave-bars:hover .wave-bar {
+  background: var(--blush);
+}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials {
+  background: var(--ivory);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 72px;
+}
+
+.testimonial-card {
+  border: 1px solid var(--bone-dark);
+  padding: 48px 40px;
+  background: var(--cream);
+  transition: border-color 0.4s, transform 0.3s;
+}
+
+.testimonial-card:hover {
+  border-color: var(--sand);
+  transform: translateY(-4px);
+}
+
+.testimonial-quote {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--earth);
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--bone-dark);
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--linen);
+  border: 1px solid var(--bone-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--earth);
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--black);
+  margin-bottom: 2px;
+}
+
+.testimonial-role {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--warm-grey);
+  letter-spacing: 1px;
+}
+
+/* ========== PRICING ========== */
+.pricing {
+  background: var(--cream);
+}
+
+.pricing-intro {
+  max-width: 560px;
+  margin-bottom: 72px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--bone-dark);
+  border: 1px solid var(--bone-dark);
+}
+
+.pricing-card {
+  background: var(--cream);
+  padding: 56px 44px;
+  transition: background 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card:hover { background: var(--ivory); }
+
+.pricing-card.featured {
+  background: var(--ivory);
+  position: relative;
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.pricing-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.pricing-tagline {
+  font-family: var(--font-editorial);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--stone);
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+.pricing-price {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.pricing-price span {
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--stone);
+  font-style: italic;
+}
+
+.pricing-unit {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--warm-grey);
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+
+.pricing-features {
+  list-style: none;
+  margin-bottom: 40px;
+  flex: 1;
+}
+
+.pricing-features li {
+  padding: 10px 0;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  color: var(--earth);
+  line-height: 1.6;
+  border-bottom: 1px solid var(--bone-dark);
+  position: relative;
+  padding-left: 18px;
+}
+
+.pricing-features li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  font-size: 8px;
+  color: var(--terracotta);
+  top: 13px;
+}
+
+.pricing-btn {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: 1px solid var(--deep);
+  color: var(--deep);
+  transition: background 0.3s, color 0.3s;
+}
+
+.pricing-btn:hover {
+  background: var(--deep);
+  color: var(--bone);
+}
+
+.pricing-card.featured .pricing-btn {
+  background: var(--deep);
+  color: var(--bone);
+  border-color: var(--deep);
+}
+
+.pricing-card.featured .pricing-btn:hover {
+  background: var(--espresso);
+}
+
+.pricing-note {
+  text-align: center;
+  margin-top: 48px;
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--stone);
+}
+
+/* ========== FAQ ========== */
+.faq {
+  background: var(--ivory);
+}
+
+.faq-container {
+  max-width: 720px;
+  margin: 72px auto 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--bone-dark);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--bone-dark);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.faq-question h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--black);
+  transition: color 0.3s;
+}
+
+.faq-question:hover h3 {
+  color: var(--earth);
+}
+
+.faq-icon {
+  font-family: var(--font-editorial);
+  font-size: 24px;
+  color: var(--taupe);
+  transition: transform 0.4s, color 0.3s;
+  flex-shrink: 0;
+  margin-left: 20px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+  color: var(--earth);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding-bottom: 28px;
+}
+
+.faq-answer p {
+  font-family: var(--font-editorial);
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+/* ========== FINAL CTA ========== */
+.final-cta {
+  background: var(--linen);
+  text-align: center;
+  padding: 140px 60px;
+  position: relative;
+}
+
+.final-cta .section-heading {
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.final-cta .section-subheading {
+  max-width: 480px;
+  margin: 0 auto 48px;
+}
+
+.final-cta-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: var(--deep);
+  padding: 80px 60px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-brand .footer-logo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--bone);
+  margin-bottom: 16px;
+}
+
+.footer-brand p {
+  font-family: var(--font-editorial);
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--warm-grey);
+  line-height: 1.8;
+  max-width: 300px;
+}
+
+.footer-col h4 {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul a {
+  font-family: var(--font-editorial);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--warm-grey);
+  transition: color 0.3s;
+}
+
+.footer-col ul a:hover {
+  color: var(--bone);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+}
+
+.footer-bottom p {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 1px;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.footer-bottom-links a:hover { color: var(--warm-grey); }
+
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .section { padding: 100px 40px; }
+  .nav { padding: 0 40px; }
+  .hero { padding: 120px 40px 100px; }
+  .logos-bar { padding: 48px 40px; }
+  .showcase { padding: 100px 40px; }
+  .final-cta { padding: 100px 40px; }
+  .footer { padding: 60px 40px; }
+  .divider-line { margin: 0 40px; }
+
+  .problem-grid { gap: 48px; }
+  .demo-content { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 80px 24px; }
+  .nav { padding: 0 24px; }
+  .nav-center { display: none; }
+  .nav-login { display: none; }
+  .nav-toggle { display: flex; }
+  .hero { padding: 100px 24px 80px; }
+  .logos-bar { padding: 40px 24px; }
+  .logos-grid { gap: 32px; }
+  .logo-item { font-size: 16px; }
+  .showcase { padding: 80px 24px; }
+  .final-cta { padding: 80px 24px; }
+  .footer { padding: 48px 24px; }
+  .divider-line { margin: 0 24px; }
+
+  .problem-grid { grid-template-columns: 1fr; gap: 48px; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .feature-row { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .demo-content { padding: 32px 24px; }
+  .demo-original, .demo-translated { padding: 24px; }
+  .demo-waveform { padding: 20px 24px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+
+  .hero h1 { letter-spacing: -1px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary { width: 100%; justify-content: center; }
+  .final-cta-actions { flex-direction: column; align-items: center; }
+  .final-cta-actions .btn-primary,
+  .final-cta-actions .btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
+
+  .hero-scroll { display: none; }
+}
+
+@media (max-width: 480px) {
+  .problem-stats { grid-template-columns: 1fr; }
+  .logos-grid { gap: 24px; }
+  .logo-item { font-size: 14px; letter-spacing: 2px; }
+}
+
+/* ========== MOBILE NAV MENU ========== */
+.mobile-menu {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 999;
+  background: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--deep);
+  transition: color 0.3s;
+}
+
+.mobile-menu a:hover { color: var(--earth); }
+
+.mobile-menu-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 28px;
+  color: var(--deep);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font-editorial);
+  transition: transform 0.3s;
+}
+
+.mobile-menu-close:hover { transform: rotate(90deg); }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Unmuted</a>
+  <div class="nav-center">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-right">
+    <a href="#" class="nav-login">Log In</a>
+    <a href="#" class="nav-cta">Get Started</a>
+    <div class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">&times;</button>
+  <a href="#how-it-works" onclick="closeMobileMenu()">How It Works</a>
+  <a href="#features" onclick="closeMobileMenu()">Features</a>
+  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#" style="margin-top: 20px; font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-grey);">Log In</a>
+  <a href="#" class="btn-primary" style="margin-top: 8px;">Get Started <span class="arrow">&rarr;</span></a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-overline">AI Translation That Feels Human</p>
+    <h1>Your voice, <em>every language.</em></h1>
+    <div class="hero-line"></div>
+    <p class="hero-desc">Dub your content in 30+ languages while preserving your personality, your energy, your soul. Because the world deserves to hear you.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Start Free <span class="arrow">&rarr;</span></a>
+      <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="logos-bar">
+  <p class="logos-label">Trusted by creators worldwide</p>
+  <div class="logos-grid">
+    <span class="logo-item">Creator Studio</span>
+    <span class="logo-item italic">Voces Latinas</span>
+    <span class="logo-item">Podflow</span>
+    <span class="logo-item italic">The Edit Co.</span>
+    <span class="logo-item">Lingua</span>
+    <span class="logo-item italic">ContentHQ</span>
+  </div>
+</div>
+
+<!-- PROBLEM SECTION -->
+<section class="section problem" id="problem">
+  <div class="problem-grid">
+    <div class="problem-visual reveal">
+      <div class="problem-card">
+        <blockquote>"I tried auto-dubbing my videos. My German audience said I sounded like a GPS."</blockquote>
+        <cite>— YouTube creator, 2.4M subscribers</cite>
+      </div>
+      <div class="problem-stats">
+        <div class="stat-card">
+          <div class="stat-number">73%</div>
+          <div class="stat-desc">of viewers drop off when dubbing feels robotic</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4.2B</div>
+          <div class="stat-desc">people you can't reach in English alone</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">89%</div>
+          <div class="stat-desc">prefer content in their native language</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10x</div>
+          <div class="stat-desc">cheaper than traditional dubbing studios</div>
+        </div>
+      </div>
+    </div>
+    <div class="problem-text reveal reveal-delay-2">
+      <span class="section-label">The Problem</span>
+      <h2 class="section-heading">You have a global audience. <em>They just can't understand you yet.</em></h2>
+      <div style="width: 50px; height: 1px; background: var(--sand); margin: 32px 0;"></div>
+      <p>Free dubbing tools make you sound like a robot. Enterprise studios cost a fortune and take weeks. You're left choosing between <strong>losing your personality</strong> or <strong>losing your global audience</strong>.</p>
+      <p>Unmuted exists because that choice shouldn't exist. AI does the heavy lifting — then human editors perfect the 10% that actually matters: <strong>your tone, your humor, your soul.</strong></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- HOW IT WORKS -->
+<section class="section how-it-works" id="how-it-works">
+  <div class="reveal">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-heading">Three steps to <em>being heard everywhere</em></h2>
+    <p class="section-subheading">No complex setup. No waiting weeks. Upload today, publish globally tomorrow.</p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-card reveal reveal-delay-1">
+      <div class="step-number">01</div>
+      <h3 class="step-title">Upload your content</h3>
+      <p class="step-desc">Drop your video or audio. We support all major formats — YouTube links, MP4, WAV, podcast RSS. Just upload and choose your target languages.</p>
+      <p class="step-detail">Supports 30+ languages including Spanish, Portuguese, Japanese, Korean, German, French, Hindi, and Arabic.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-2">
+      <div class="step-number">02</div>
+      <h3 class="step-title">AI learns your voice</h3>
+      <p class="step-desc">Our AI analyzes your speech patterns, rhythm, emotion, and personality. It doesn't just translate words — it carries your essence across languages.</p>
+      <p class="step-detail">Human editors review every project to perfect nuances that AI alone can't catch.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-3">
+      <div class="step-number">03</div>
+      <h3 class="step-title">Publish everywhere</h3>
+      <p class="step-desc">Preview your dubbed content, make adjustments if you'd like, and publish. Your Spanish, Japanese, and Portuguese audiences hear you — the real you.</p>
+      <p class="step-detail">Average turnaround: 24-48 hours. Rush delivery available for time-sensitive content.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- FEATURES -->
+<section class="section features" id="features">
+  <div class="features-intro reveal">
+    <span class="section-label">Why Unmuted</span>
+    <h2 class="section-heading">We translate content, <em>not personality.</em></h2>
+    <p class="section-subheading">Every feature is designed around one obsession: making you sound like yourself in every language.</p>
+  </div>
+
+  <div class="feature-row reveal">
+    <div class="feature-card">
+      <span class="feature-icon">i.</span>
+      <h3 class="feature-title">Voice Cloning</h3>
+      <p class="feature-desc">Your voice, not a generic AI voice. We clone your unique vocal signature — your pitch, cadence, warmth — and carry it to every language.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">ii.</span>
+      <h3 class="feature-title">Emotion Preservation</h3>
+      <p class="feature-desc">Laughter stays laughter. Sarcasm stays sarcasm. Our AI understands not just what you say, but how and why you say it.</p>
+    </div>
+  </div>
+  <div class="feature-row reveal reveal-delay-1">
+    <div class="feature-card">
+      <span class="feature-icon">iii.</span>
+      <h3 class="feature-title">Human Review</h3>
+      <p class="feature-desc">AI does 90%. Our native-speaking editors perfect the rest — cultural nuances, local expressions, the subtle things only a human ear catches.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">iv.</span>
+      <h3 class="feature-title">Lip Sync</h3>
+      <p class="feature-desc">For video content, we match mouth movements to the translated audio. Your dubbed content looks as natural as the original.</p>
+    </div>
+  </div>
+  <div class="feature-row reveal reveal-delay-2">
+    <div class="feature-card">
+      <span class="feature-icon">v.</span>
+      <h3 class="feature-title">Cultural Adaptation</h3>
+      <p class="feature-desc">We don't just translate — we adapt. Jokes, references, idioms: we find the cultural equivalent that resonates with each audience.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">vi.</span>
+      <h3 class="feature-title">Fast Turnaround</h3>
+      <p class="feature-desc">Most projects delivered in 24-48 hours. Because your content calendar doesn't wait, and neither should your global audience.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- SHOWCASE / DEMO -->
+<section class="showcase">
+  <div class="reveal">
+    <span class="section-label">See The Difference</span>
+    <h2 class="section-heading">Same creator. <em>Two languages.</em> One soul.</h2>
+    <p class="section-subheading">Hear how Unmuted preserves personality across languages — not just words, but energy.</p>
+  </div>
+
+  <div class="showcase-demo reveal reveal-delay-1">
+    <div class="demo-bar">
+      <div class="demo-dot"></div>
+      <div class="demo-dot"></div>
+      <div class="demo-dot"></div>
+    </div>
+    <div class="demo-content">
+      <div class="demo-original">
+        <div class="demo-label"><div class="demo-lang-dot"></div> Original — English</div>
+        <p class="demo-text">"Look, I know what you're thinking — another AI tool, right? But hear me out. This one actually gets it. It gets me."</p>
+        <p class="demo-note">Natural, conversational, with that signature sarcastic warmth.</p>
+      </div>
+      <div class="demo-translated">
+        <div class="demo-label"><div class="demo-lang-dot"></div> Unmuted — Spanish</div>
+        <p class="demo-text">"Miren, ya sé lo que están pensando — otra herramienta de IA, ¿no? Pero escúchenme. Esta sí lo entiende. Me entiende a mí."</p>
+        <p class="demo-note">Same tone, same pause, same personality. Just in Spanish.</p>
+      </div>
+    </div>
+    <div class="demo-waveform">
+      <div class="wave-play">&#9654;</div>
+      <div class="wave-bars" id="waveBars"></div>
+      <span style="font-family: var(--font-sans); font-size: 11px; color: var(--warm-grey); letter-spacing: 1px; flex-shrink: 0;">0:12</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials" id="testimonials">
+  <div class="reveal">
+    <span class="section-label">What Creators Say</span>
+    <h2 class="section-heading">Voices that <em>trust us</em></h2>
+    <p class="section-subheading">Real creators who expanded their reach without losing what makes them special.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal reveal-delay-1">
+      <p class="testimonial-quote">"My Portuguese audience grew 340% in three months. But the best part? They think I actually speak Portuguese. That's how natural it sounds."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">M</div>
+        <div>
+          <div class="testimonial-name">Marco Rivera</div>
+          <div class="testimonial-role">YouTube, 1.8M subscribers</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <p class="testimonial-quote">"I was skeptical about AI dubbing. Then I heard my Japanese version and literally got chills. It was me — just in Japanese. Same laugh and everything."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">S</div>
+        <div>
+          <div class="testimonial-name">Sarah Chen</div>
+          <div class="testimonial-role">Podcast host, The Creative Hour</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-3">
+      <p class="testimonial-quote">"Other services made me sound corporate. Unmuted made me sound like me — just louder. My Spanish channel hit 500K in four months."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">A</div>
+        <div>
+          <div class="testimonial-name">Alex Torres</div>
+          <div class="testimonial-role">Content creator & educator</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="pricing-intro reveal">
+    <span class="section-label">Pricing</span>
+    <h2 class="section-heading">Premium quality, <em>honest pricing.</em></h2>
+    <p class="section-subheading">No hidden fees. No long-term contracts. Start free, scale when you're ready.</p>
+  </div>
+
+  <div class="pricing-grid reveal">
+    <div class="pricing-card">
+      <h3 class="pricing-name">Starter</h3>
+      <p class="pricing-tagline">Perfect for trying us out</p>
+      <div class="pricing-price">$0 <span>/ forever</span></div>
+      <p class="pricing-unit">Up to 10 minutes of content</p>
+      <ul class="pricing-features">
+        <li>1 language</li>
+        <li>AI voice cloning</li>
+        <li>Standard turnaround (72h)</li>
+        <li>Basic emotion preservation</li>
+        <li>Email support</li>
+      </ul>
+      <a href="#" class="pricing-btn">Start Free</a>
+    </div>
+    <div class="pricing-card featured">
+      <span class="pricing-badge">Most Popular</span>
+      <h3 class="pricing-name">Creator</h3>
+      <p class="pricing-tagline">For growing creators</p>
+      <div class="pricing-price">$49 <span>/ month</span></div>
+      <p class="pricing-unit">Up to 120 minutes of content</p>
+      <ul class="pricing-features">
+        <li>5 languages</li>
+        <li>Advanced voice cloning</li>
+        <li>Fast turnaround (24-48h)</li>
+        <li>Full emotion preservation</li>
+        <li>Human editor review</li>
+        <li>Lip sync for video</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="#" class="pricing-btn">Get Started</a>
+    </div>
+    <div class="pricing-card">
+      <h3 class="pricing-name">Studio</h3>
+      <p class="pricing-tagline">For teams & agencies</p>
+      <div class="pricing-price">$199 <span>/ month</span></div>
+      <p class="pricing-unit">Unlimited content</p>
+      <ul class="pricing-features">
+        <li>30+ languages</li>
+        <li>Premium voice cloning</li>
+        <li>Rush delivery (12h)</li>
+        <li>Full cultural adaptation</li>
+        <li>Dedicated editor team</li>
+        <li>Advanced lip sync</li>
+        <li>API access</li>
+        <li>Dedicated account manager</li>
+      </ul>
+      <a href="#" class="pricing-btn">Contact Us</a>
+    </div>
+  </div>
+
+  <p class="pricing-note reveal">Need something custom? <a href="#" style="color: var(--earth); border-bottom: 1px solid var(--sand);">Let's talk.</a></p>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="reveal" style="text-align: center;">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-heading">Questions <em>we hear a lot</em></h2>
+  </div>
+
+  <div class="faq-container">
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <h3>How does Unmuted preserve my voice?</h3>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>We use advanced AI voice cloning that analyzes your unique vocal signature — pitch, cadence, emotional patterns, even your pauses. The result isn't a generic voice reading a translation. It's your voice, speaking another language naturally.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <h3>Is it really my voice, or just a similar AI voice?</h3>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>It's your voice. We clone your specific vocal characteristics — not approximate them with a generic model. Most creators tell us their audience can't tell it's dubbed. That's the standard we aim for with every project.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <h3>What languages do you support?</h3>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>We currently support 30+ languages including Spanish, Portuguese, Japanese, Korean, German, French, Hindi, Arabic, Mandarin, Italian, and many more. We're constantly adding new languages based on creator demand.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <h3>How long does it take?</h3>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Standard turnaround is 24-48 hours for most projects. Our Studio plan offers rush delivery in as little as 12 hours. We know your content calendar matters — we work to match your pace.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <h3>Do humans review the translations?</h3>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. AI handles the heavy lifting — about 90% of the work. But every project on our Creator and Studio plans gets reviewed by native-speaking human editors who perfect cultural nuances, idioms, and emotional delivery. We believe in AI + human, not AI alone.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <h3>Can I try it before committing?</h3>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Absolutely. Our Starter plan is free forever — up to 10 minutes of content in one language. No credit card required. Try it, hear yourself in another language, and decide if it's right for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="reveal">
+    <span class="section-label">Ready?</span>
+    <h2 class="section-heading">The world is <em>listening.</em></h2>
+    <p class="section-subheading">Start reaching your global audience today. Same voice. Same personality. Every language.</p>
+    <div class="final-cta-actions">
+      <a href="#" class="btn-primary">Start Free <span class="arrow">&rarr;</span></a>
+      <a href="#" class="btn-secondary">Book a Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Unmuted</div>
+      <p>Your voice, every language. AI translation that preserves the humanity of every voice.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#">API</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Unmuted. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ========== NAV SCROLL EFFECT ========== */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ========== MOBILE MENU ========== */
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+
+navToggle.addEventListener('click', () => {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+mobileClose.addEventListener('click', closeMobileMenu);
+
+/* ========== SCROLL REVEAL ========== */
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+/* ========== FAQ TOGGLE ========== */
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isActive = item.classList.contains('active');
+  
+  // Close all
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+  
+  // Open clicked if wasn't active
+  if (!isActive) {
+    item.classList.add('active');
+  }
+}
+
+/* ========== WAVEFORM BARS ========== */
+const waveBars = document.getElementById('waveBars');
+if (waveBars) {
+  for (let i = 0; i < 80; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'wave-bar';
+    const h = Math.random() * 24 + 4;
+    bar.style.height = h + 'px';
+    waveBars.appendChild(bar);
+  }
+}
+
+/* ========== SMOOTH SCROLL FOR ANCHOR LINKS ========== */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
