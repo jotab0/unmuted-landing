@@ -1556,6 +1556,48 @@ ul { list-style: none; }
 }
 
 .mobile-menu-close:hover { transform: rotate(90deg); color: var(--terracotta); }
+
+/* ========== LANGUAGE TOGGLE ========== */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 14px;
+  border: 1px solid var(--sand);
+  transition: border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lang-toggle:hover {
+  border-color: var(--terracotta);
+}
+
+.lang-toggle .lang-option {
+  color: var(--warm-grey);
+  transition: color 0.3s;
+  padding: 2px 4px;
+}
+
+.lang-toggle .lang-option.active {
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.lang-toggle .lang-sep {
+  color: var(--sand);
+  user-select: none;
+}
+
+.mobile-menu .lang-toggle {
+  margin-top: 12px;
+  border-color: var(--bone-dark);
+}
 </style>
 </head>
 <body>
@@ -1564,13 +1606,18 @@ ul { list-style: none; }
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">Unmuted</a>
   <div class="nav-center">
-    <a href="#features">Features</a>
-    <a href="#showcase">The Difference</a>
-    <a href="#faq">FAQ</a>
+    <a href="#features" data-i18n="nav_features">Features</a>
+    <a href="#showcase" data-i18n="nav_difference">The Difference</a>
+    <a href="#faq" data-i18n="nav_faq">FAQ</a>
   </div>
   <div class="nav-right">
-    <a href="#" class="nav-login">Log In</a>
-    <a href="#" class="nav-cta">Contact Us</a>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language" onclick="toggleLanguage()">
+      <span class="lang-option active" data-lang="en">EN</span>
+      <span class="lang-sep">|</span>
+      <span class="lang-option" data-lang="es">ES</span>
+    </button>
+    <a href="#" class="nav-login" data-i18n="nav_login">Log In</a>
+    <a href="#" class="nav-cta" data-i18n="nav_contact">Contact Us</a>
     <div class="nav-toggle" id="navToggle" aria-label="Open menu">
       <span></span>
       <span></span>
@@ -1582,34 +1629,39 @@ ul { list-style: none; }
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" id="mobileClose">&times;</button>
-  <a href="#features" onclick="closeMobileMenu()">Features</a>
-  <a href="#showcase" onclick="closeMobileMenu()">The Difference</a>
-  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-  <a href="#" style="margin-top: 20px; font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-grey);">Log In</a>
-  <a href="#" class="btn-primary" style="margin-top: 8px;">Contact Us <span class="arrow">&rarr;</span></a>
+  <a href="#features" onclick="closeMobileMenu()" data-i18n="nav_features">Features</a>
+  <a href="#showcase" onclick="closeMobileMenu()" data-i18n="nav_difference">The Difference</a>
+  <a href="#faq" onclick="closeMobileMenu()" data-i18n="nav_faq">FAQ</a>
+  <a href="#" style="margin-top: 20px; font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-grey);" data-i18n="nav_login">Log In</a>
+  <a href="#" class="btn-primary" style="margin-top: 8px;"><span data-i18n="nav_contact">Contact Us</span> <span class="arrow">&rarr;</span></a>
+  <button class="lang-toggle" aria-label="Switch language" onclick="toggleLanguage()">
+    <span class="lang-option active" data-lang="en">EN</span>
+    <span class="lang-sep">|</span>
+    <span class="lang-option" data-lang="es">ES</span>
+  </button>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <p class="hero-overline">AI Translation That Feels Human</p>
-    <h1>Your voice, <em>every language.</em></h1>
+    <p class="hero-overline" data-i18n="hero_overline">AI Translation That Feels Human</p>
+    <h1 data-i18n="hero_title">Your voice, <em>every language.</em></h1>
     <div class="hero-line"></div>
-    <p class="hero-desc">Dub your content in 30+ languages while preserving your personality, your energy, your soul. Because the world deserves to hear you.</p>
+    <p class="hero-desc" data-i18n="hero_desc">Dub your content in 30+ languages while preserving your personality, your energy, your soul. Because the world deserves to hear you.</p>
     <div class="hero-actions">
-      <a href="#" class="btn-primary">Contact Us <span class="arrow">&rarr;</span></a>
-      <a href="#showcase" class="btn-secondary">See How It Works</a>
+      <a href="#" class="btn-primary"><span data-i18n="cta_contact">Contact Us</span> <span class="arrow">&rarr;</span></a>
+      <a href="#showcase" class="btn-secondary" data-i18n="hero_secondary">See How It Works</a>
     </div>
   </div>
   <div class="hero-scroll">
-    <span>Scroll</span>
+    <span data-i18n="hero_scroll">Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
 <!-- SOCIAL PROOF BAR -->
 <div class="logos-bar">
-  <p class="logos-label">Trusted by creators worldwide</p>
+  <p class="logos-label" data-i18n="logos_label">Trusted by creators worldwide</p>
   <div class="logos-grid">
     <span class="logo-item">Creator Studio</span>
     <span class="logo-item italic">Voces Latinas</span>
@@ -1625,34 +1677,34 @@ ul { list-style: none; }
   <div class="problem-grid">
     <div class="problem-visual reveal">
       <div class="problem-card">
-        <blockquote>"I tried auto-dubbing my videos. My German audience said I sounded like a GPS."</blockquote>
-        <cite>— YouTube creator, 2.4M subscribers</cite>
+        <blockquote data-i18n="problem_quote">"I tried auto-dubbing my videos. My German audience said I sounded like a GPS."</blockquote>
+        <cite data-i18n="problem_cite">— YouTube creator, 2.4M subscribers</cite>
       </div>
       <div class="problem-stats">
         <div class="stat-card">
           <div class="stat-number">73%</div>
-          <div class="stat-desc">of viewers drop off when dubbing feels robotic</div>
+          <div class="stat-desc" data-i18n="stat1_desc">of viewers drop off when dubbing feels robotic</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">4.2B</div>
-          <div class="stat-desc">people you can't reach in English alone</div>
+          <div class="stat-desc" data-i18n="stat2_desc">people you can't reach in English alone</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">89%</div>
-          <div class="stat-desc">prefer content in their native language</div>
+          <div class="stat-desc" data-i18n="stat3_desc">prefer content in their native language</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">10x</div>
-          <div class="stat-desc">cheaper than traditional dubbing studios</div>
+          <div class="stat-desc" data-i18n="stat4_desc">cheaper than traditional dubbing studios</div>
         </div>
       </div>
     </div>
     <div class="problem-text reveal reveal-delay-2">
-      <span class="section-label">The Problem</span>
-      <h2 class="section-heading">You have a global audience. <em>They just can't understand you yet.</em></h2>
+      <span class="section-label" data-i18n="problem_label">The Problem</span>
+      <h2 class="section-heading" data-i18n="problem_heading">You have a global audience. <em>They just can't understand you yet.</em></h2>
       <div style="width: 50px; height: 1px; background: var(--sand); margin: 32px 0;"></div>
-      <p>Free dubbing tools make you sound like a robot. Enterprise studios cost a fortune and take weeks. You're left choosing between <strong>losing your personality</strong> or <strong>losing your global audience</strong>.</p>
-      <p>Unmuted exists because that choice shouldn't exist. AI does the heavy lifting — then human editors perfect the 10% that actually matters: <strong>your tone, your humor, your soul.</strong></p>
+      <p data-i18n="problem_text1">Free dubbing tools make you sound like a robot. Enterprise studios cost a fortune and take weeks. You're left choosing between <strong>losing your personality</strong> or <strong>losing your global audience</strong>.</p>
+      <p data-i18n="problem_text2">Unmuted exists because that choice shouldn't exist. AI does the heavy lifting — then human editors perfect the 10% that actually matters: <strong>your tone, your humor, your soul.</strong></p>
     </div>
   </div>
 </section>
@@ -1662,45 +1714,45 @@ ul { list-style: none; }
 <!-- FEATURES -->
 <section class="section features" id="features">
   <div class="features-intro reveal">
-    <span class="section-label">Why Unmuted</span>
-    <h2 class="section-heading">We translate personality, <em>not content.</em></h2>
-    <p class="section-subheading">Every feature is designed around one obsession: making you sound like yourself in every language.</p>
+    <span class="section-label" data-i18n="features_label">Why Unmuted</span>
+    <h2 class="section-heading" data-i18n="features_heading">We translate personality, <em>not content.</em></h2>
+    <p class="section-subheading" data-i18n="features_subheading">Every feature is designed around one obsession: making you sound like yourself in every language.</p>
   </div>
 
   <div class="feature-row reveal">
     <div class="feature-card">
       <span class="feature-icon">i.</span>
-      <h3 class="feature-title">Voice Cloning</h3>
-      <p class="feature-desc">Your voice, not a generic AI voice. We clone your unique vocal signature — your pitch, cadence, warmth — and carry it to every language.</p>
+      <h3 class="feature-title" data-i18n="feature1_title">Voice Cloning</h3>
+      <p class="feature-desc" data-i18n="feature1_desc">Your voice, not a generic AI voice. We clone your unique vocal signature — your pitch, cadence, warmth — and carry it to every language.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">ii.</span>
-      <h3 class="feature-title">Emotion Preservation</h3>
-      <p class="feature-desc">Laughter stays laughter. Sarcasm stays sarcasm. Our AI understands not just what you say, but how and why you say it.</p>
+      <h3 class="feature-title" data-i18n="feature2_title">Emotion Preservation</h3>
+      <p class="feature-desc" data-i18n="feature2_desc">Laughter stays laughter. Sarcasm stays sarcasm. Our AI understands not just what you say, but how and why you say it.</p>
     </div>
   </div>
   <div class="feature-row reveal reveal-delay-1">
     <div class="feature-card">
       <span class="feature-icon">iii.</span>
-      <h3 class="feature-title">Human Review</h3>
-      <p class="feature-desc">AI does 90%. Our native-speaking editors perfect the rest — cultural nuances, local expressions, the subtle things only a human ear catches.</p>
+      <h3 class="feature-title" data-i18n="feature3_title">Human Review</h3>
+      <p class="feature-desc" data-i18n="feature3_desc">AI does 90%. Our native-speaking editors perfect the rest — cultural nuances, local expressions, the subtle things only a human ear catches.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">iv.</span>
-      <h3 class="feature-title">Lip Sync</h3>
-      <p class="feature-desc">For video content, we match mouth movements to the translated audio. Your dubbed content looks as natural as the original.</p>
+      <h3 class="feature-title" data-i18n="feature4_title">Lip Sync</h3>
+      <p class="feature-desc" data-i18n="feature4_desc">For video content, we match mouth movements to the translated audio. Your dubbed content looks as natural as the original.</p>
     </div>
   </div>
   <div class="feature-row reveal reveal-delay-2">
     <div class="feature-card">
       <span class="feature-icon">v.</span>
-      <h3 class="feature-title">Cultural Adaptation</h3>
-      <p class="feature-desc">We don't just translate — we adapt. Jokes, references, idioms: we find the cultural equivalent that resonates with each audience.</p>
+      <h3 class="feature-title" data-i18n="feature5_title">Cultural Adaptation</h3>
+      <p class="feature-desc" data-i18n="feature5_desc">We don't just translate — we adapt. Jokes, references, idioms: we find the cultural equivalent that resonates with each audience.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">vi.</span>
-      <h3 class="feature-title">Fast Turnaround</h3>
-      <p class="feature-desc">Most projects delivered in 24-48 hours. Because your content calendar doesn't wait, and neither should your global audience.</p>
+      <h3 class="feature-title" data-i18n="feature6_title">Fast Turnaround</h3>
+      <p class="feature-desc" data-i18n="feature6_desc">Most projects delivered in 24-48 hours. Because your content calendar doesn't wait, and neither should your global audience.</p>
     </div>
   </div>
 </section>
@@ -1710,9 +1762,9 @@ ul { list-style: none; }
 <!-- SHOWCASE / DEMO -->
 <section class="showcase" id="showcase">
   <div class="reveal">
-    <span class="section-label">See The Difference</span>
-    <h2 class="section-heading">Same creator. <em>Two languages.</em> One soul.</h2>
-    <p class="section-subheading">Hear how Unmuted preserves personality across languages — not just words, but energy.</p>
+    <span class="section-label" data-i18n="showcase_label">See The Difference</span>
+    <h2 class="section-heading" data-i18n="showcase_heading">Same creator. <em>Two languages.</em> One soul.</h2>
+    <p class="section-subheading" data-i18n="showcase_subheading">Hear how Unmuted preserves personality across languages — not just words, but energy.</p>
   </div>
 
   <div class="showcase-demo reveal reveal-delay-1">
@@ -1723,20 +1775,20 @@ ul { list-style: none; }
     </div>
     <div class="demo-content">
       <div class="demo-original">
-        <div class="demo-label"><div class="demo-lang-dot"></div> Original — English</div>
+        <div class="demo-label"><div class="demo-lang-dot"></div> <span data-i18n="demo_label_original">Original — English</span></div>
         <p class="demo-text">"Look, I know what you're thinking — another AI tool, right? But hear me out. This one actually gets it. It gets me."</p>
-        <p class="demo-note">Natural, conversational, with that signature sarcastic warmth.</p>
+        <p class="demo-note" data-i18n="demo_note_original">Natural, conversational, with that signature sarcastic warmth.</p>
       </div>
       <div class="demo-translated">
-        <div class="demo-label"><div class="demo-lang-dot"></div> Unmuted — Spanish</div>
+        <div class="demo-label"><div class="demo-lang-dot"></div> <span data-i18n="demo_label_unmuted">Unmuted — Spanish</span></div>
         <p class="demo-text">"Miren, ya sé lo que están pensando — otra herramienta de IA, ¿no? Pero escúchenme. Esta sí lo entiende. Me entiende a mí."</p>
-        <p class="demo-note">Same tone, same pause, same personality. Just in Spanish.</p>
+        <p class="demo-note" data-i18n="demo_note_unmuted">Same tone, same pause, same personality. Just in Spanish.</p>
       </div>
       <div class="demo-youtube">
-        <span class="demo-youtube-badge">Generic Auto-Dub</span>
-        <div class="demo-label"><div class="demo-lang-dot"></div> YouTube Auto-Dub — Spanish</div>
+        <span class="demo-youtube-badge" data-i18n="demo_youtube_badge">Generic Auto-Dub</span>
+        <div class="demo-label"><div class="demo-lang-dot"></div> <span data-i18n="demo_label_youtube">YouTube Auto-Dub — Spanish</span></div>
         <p class="demo-text">"Mira, yo sé lo que estás pensando. Otra herramienta de inteligencia artificial, ¿verdad? Pero escúchame. Esta realmente lo entiende. Me entiende."</p>
-        <p class="demo-note">Flat, robotic monotone. No personality, no pauses, no soul. Sounds like a GPS reading a script.</p>
+        <p class="demo-note" data-i18n="demo_note_youtube">Flat, robotic monotone. No personality, no pauses, no soul. Sounds like a GPS reading a script.</p>
       </div>
     </div>
     <div class="demo-waveform">
@@ -1750,39 +1802,39 @@ ul { list-style: none; }
 <!-- TESTIMONIALS -->
 <section class="section testimonials" id="testimonials">
   <div class="reveal">
-    <span class="section-label">What Creators Say</span>
-    <h2 class="section-heading">Voices that <em>trust us</em></h2>
-    <p class="section-subheading">Real creators who expanded their reach without losing what makes them special.</p>
+    <span class="section-label" data-i18n="testimonials_label">What Creators Say</span>
+    <h2 class="section-heading" data-i18n="testimonials_heading">Voices that <em>trust us</em></h2>
+    <p class="section-subheading" data-i18n="testimonials_subheading">Real creators who expanded their reach without losing what makes them special.</p>
   </div>
 
   <div class="testimonials-grid">
     <div class="testimonial-card reveal reveal-delay-1">
-      <p class="testimonial-quote">"My Portuguese audience grew 340% in three months. But the best part? They think I actually speak Portuguese. That's how natural it sounds."</p>
+      <p class="testimonial-quote" data-i18n="testimonial1_quote">"My Portuguese audience grew 340% in three months. But the best part? They think I actually speak Portuguese. That's how natural it sounds."</p>
       <div class="testimonial-author">
         <div class="testimonial-avatar">M</div>
         <div>
           <div class="testimonial-name">Marco Rivera</div>
-          <div class="testimonial-role">YouTube, 1.8M subscribers</div>
+          <div class="testimonial-role" data-i18n="testimonial1_role">YouTube, 1.8M subscribers</div>
         </div>
       </div>
     </div>
     <div class="testimonial-card reveal reveal-delay-2">
-      <p class="testimonial-quote">"I was skeptical about AI dubbing. Then I heard my Japanese version and literally got chills. It was me — just in Japanese. Same laugh and everything."</p>
+      <p class="testimonial-quote" data-i18n="testimonial2_quote">"I was skeptical about AI dubbing. Then I heard my Japanese version and literally got chills. It was me — just in Japanese. Same laugh and everything."</p>
       <div class="testimonial-author">
         <div class="testimonial-avatar">S</div>
         <div>
           <div class="testimonial-name">Sarah Chen</div>
-          <div class="testimonial-role">Podcast host, The Creative Hour</div>
+          <div class="testimonial-role" data-i18n="testimonial2_role">Podcast host, The Creative Hour</div>
         </div>
       </div>
     </div>
     <div class="testimonial-card reveal reveal-delay-3">
-      <p class="testimonial-quote">"Other services made me sound corporate. Unmuted made me sound like me — just louder. My Spanish channel hit 500K in four months."</p>
+      <p class="testimonial-quote" data-i18n="testimonial3_quote">"Other services made me sound corporate. Unmuted made me sound like me — just louder. My Spanish channel hit 500K in four months."</p>
       <div class="testimonial-author">
         <div class="testimonial-avatar">A</div>
         <div>
           <div class="testimonial-name">Alex Torres</div>
-          <div class="testimonial-role">Content creator & educator</div>
+          <div class="testimonial-role" data-i18n="testimonial3_role">Content creator & educator</div>
         </div>
       </div>
     </div>
@@ -1794,63 +1846,63 @@ ul { list-style: none; }
 <!-- FAQ -->
 <section class="section faq" id="faq">
   <div class="reveal" style="text-align: center;">
-    <span class="section-label">FAQ</span>
-    <h2 class="section-heading">Questions <em>we hear a lot</em></h2>
+    <span class="section-label" data-i18n="faq_label">FAQ</span>
+    <h2 class="section-heading" data-i18n="faq_heading">Questions <em>we hear a lot</em></h2>
   </div>
 
   <div class="faq-container">
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
-        <h3>How does Unmuted preserve my voice?</h3>
+        <h3 data-i18n="faq1_q">How does Unmuted preserve my voice?</h3>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>We use advanced AI voice cloning that analyzes your unique vocal signature — pitch, cadence, emotional patterns, even your pauses. The result isn't a generic voice reading a translation. It's your voice, speaking another language naturally.</p>
+        <p data-i18n="faq1_a">We use advanced AI voice cloning that analyzes your unique vocal signature — pitch, cadence, emotional patterns, even your pauses. The result isn't a generic voice reading a translation. It's your voice, speaking another language naturally.</p>
       </div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
-        <h3>Is it really my voice, or just a similar AI voice?</h3>
+        <h3 data-i18n="faq2_q">Is it really my voice, or just a similar AI voice?</h3>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>It's your voice. We clone your specific vocal characteristics — not approximate them with a generic model. Most creators tell us their audience can't tell it's dubbed. That's the standard we aim for with every project.</p>
+        <p data-i18n="faq2_a">It's your voice. We clone your specific vocal characteristics — not approximate them with a generic model. Most creators tell us their audience can't tell it's dubbed. That's the standard we aim for with every project.</p>
       </div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
-        <h3>What languages do you support?</h3>
+        <h3 data-i18n="faq3_q">What languages do you support?</h3>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>We currently support 30+ languages including Spanish, Portuguese, Japanese, Korean, German, French, Hindi, Arabic, Mandarin, Italian, and many more. We're constantly adding new languages based on creator demand.</p>
+        <p data-i18n="faq3_a">We currently support 30+ languages including Spanish, Portuguese, Japanese, Korean, German, French, Hindi, Arabic, Mandarin, Italian, and many more. We're constantly adding new languages based on creator demand.</p>
       </div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
-        <h3>How long does it take?</h3>
+        <h3 data-i18n="faq4_q">How long does it take?</h3>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Standard turnaround is 24-48 hours for most projects. Rush delivery in as little as 12 hours is available. We know your content calendar matters — we work to match your pace.</p>
+        <p data-i18n="faq4_a">Standard turnaround is 24-48 hours for most projects. Rush delivery in as little as 12 hours is available. We know your content calendar matters — we work to match your pace.</p>
       </div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
-        <h3>Do humans review the translations?</h3>
+        <h3 data-i18n="faq5_q">Do humans review the translations?</h3>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Yes. AI handles the heavy lifting — about 90% of the work. But every project gets reviewed by native-speaking human editors who perfect cultural nuances, idioms, and emotional delivery. We believe in AI + human, not AI alone.</p>
+        <p data-i18n="faq5_a">Yes. AI handles the heavy lifting — about 90% of the work. But every project gets reviewed by native-speaking human editors who perfect cultural nuances, idioms, and emotional delivery. We believe in AI + human, not AI alone.</p>
       </div>
     </div>
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
-        <h3>Can I try it before committing?</h3>
+        <h3 data-i18n="faq6_q">Can I try it before committing?</h3>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Absolutely. Contact us and we'll set up a free demo with your own content — hear yourself in another language and decide if it's right for you. No commitment required.</p>
+        <p data-i18n="faq6_a">Absolutely. Contact us and we'll set up a free demo with your own content — hear yourself in another language and decide if it's right for you. No commitment required.</p>
       </div>
     </div>
   </div>
@@ -1859,12 +1911,12 @@ ul { list-style: none; }
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="reveal">
-    <span class="section-label">Ready?</span>
-    <h2 class="section-heading">The world is <em>listening.</em></h2>
-    <p class="section-subheading">Reach your global audience today. Same voice. Same personality. Every language.</p>
+    <span class="section-label" data-i18n="cta_label">Ready?</span>
+    <h2 class="section-heading" data-i18n="cta_heading">The world is <em>listening.</em></h2>
+    <p class="section-subheading" data-i18n="cta_subheading">Reach your global audience today. Same voice. Same personality. Every language.</p>
     <div class="final-cta-actions">
-      <a href="#" class="btn-primary">Contact Us <span class="arrow">&rarr;</span></a>
-      <a href="#" class="btn-secondary">Book a Demo</a>
+      <a href="#" class="btn-primary"><span data-i18n="cta_contact">Contact Us</span> <span class="arrow">&rarr;</span></a>
+      <a href="#" class="btn-secondary" data-i18n="cta_demo">Book a Demo</a>
     </div>
   </div>
 </section>
@@ -1874,28 +1926,28 @@ ul { list-style: none; }
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo">Unmuted</div>
-      <p>Your voice, every language. AI translation that preserves the humanity of every voice.</p>
+      <p data-i18n="footer_desc">Your voice, every language. AI translation that preserves the humanity of every voice.</p>
     </div>
     <div class="footer-col">
-      <h4>Product</h4>
+      <h4 data-i18n="footer_product">Product</h4>
       <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#showcase">The Difference</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#features" data-i18n="nav_features">Features</a></li>
+        <li><a href="#showcase" data-i18n="nav_difference">The Difference</a></li>
+        <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
         <li><a href="#">API</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Company</h4>
+      <h4 data-i18n="footer_company">Company</h4>
       <ul>
-        <li><a href="#">About</a></li>
+        <li><a href="#" data-i18n="footer_about">About</a></li>
         <li><a href="#">Blog</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#" data-i18n="footer_careers">Careers</a></li>
+        <li><a href="#" data-i18n="footer_contact_link">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Connect</h4>
+      <h4 data-i18n="footer_connect">Connect</h4>
       <ul>
         <li><a href="#">Twitter / X</a></li>
         <li><a href="#">Instagram</a></li>
@@ -1905,10 +1957,10 @@ ul { list-style: none; }
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Unmuted. All rights reserved.</p>
+    <p data-i18n="footer_copyright">&copy; 2026 Unmuted. All rights reserved.</p>
     <div class="footer-bottom-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+      <a href="#" data-i18n="footer_privacy">Privacy</a>
+      <a href="#" data-i18n="footer_terms">Terms</a>
       <a href="#">Cookies</a>
     </div>
   </div>
@@ -2102,6 +2154,234 @@ ul { list-style: none; }
   });
 
   window.addEventListener('scroll', handleActiveLink, { passive: true });
+
+  /* ========== LANGUAGE SYSTEM (EN / ES) ========== */
+  var translations = {
+    en: {
+      nav_features: 'Features',
+      nav_difference: 'The Difference',
+      nav_faq: 'FAQ',
+      nav_login: 'Log In',
+      nav_contact: 'Contact Us',
+      hero_overline: 'AI Translation That Feels Human',
+      hero_title: 'Your voice, <em>every language.</em>',
+      hero_desc: 'Dub your content in 30+ languages while preserving your personality, your energy, your soul. Because the world deserves to hear you.',
+      cta_contact: 'Contact Us',
+      hero_secondary: 'See How It Works',
+      hero_scroll: 'Scroll',
+      logos_label: 'Trusted by creators worldwide',
+      problem_quote: '\u201CI tried auto-dubbing my videos. My German audience said I sounded like a GPS.\u201D',
+      problem_cite: '\u2014 YouTube creator, 2.4M subscribers',
+      stat1_desc: 'of viewers drop off when dubbing feels robotic',
+      stat2_desc: 'people you can\u2019t reach in English alone',
+      stat3_desc: 'prefer content in their native language',
+      stat4_desc: 'cheaper than traditional dubbing studios',
+      problem_label: 'The Problem',
+      problem_heading: 'You have a global audience. <em>They just can\u2019t understand you yet.</em>',
+      problem_text1: 'Free dubbing tools make you sound like a robot. Enterprise studios cost a fortune and take weeks. You\u2019re left choosing between <strong>losing your personality</strong> or <strong>losing your global audience</strong>.',
+      problem_text2: 'Unmuted exists because that choice shouldn\u2019t exist. AI does the heavy lifting \u2014 then human editors perfect the 10% that actually matters: <strong>your tone, your humor, your soul.</strong>',
+      features_label: 'Why Unmuted',
+      features_heading: 'We translate personality, <em>not content.</em>',
+      features_subheading: 'Every feature is designed around one obsession: making you sound like yourself in every language.',
+      feature1_title: 'Voice Cloning',
+      feature1_desc: 'Your voice, not a generic AI voice. We clone your unique vocal signature \u2014 your pitch, cadence, warmth \u2014 and carry it to every language.',
+      feature2_title: 'Emotion Preservation',
+      feature2_desc: 'Laughter stays laughter. Sarcasm stays sarcasm. Our AI understands not just what you say, but how and why you say it.',
+      feature3_title: 'Human Review',
+      feature3_desc: 'AI does 90%. Our native-speaking editors perfect the rest \u2014 cultural nuances, local expressions, the subtle things only a human ear catches.',
+      feature4_title: 'Lip Sync',
+      feature4_desc: 'For video content, we match mouth movements to the translated audio. Your dubbed content looks as natural as the original.',
+      feature5_title: 'Cultural Adaptation',
+      feature5_desc: 'We don\u2019t just translate \u2014 we adapt. Jokes, references, idioms: we find the cultural equivalent that resonates with each audience.',
+      feature6_title: 'Fast Turnaround',
+      feature6_desc: 'Most projects delivered in 24\u201348 hours. Because your content calendar doesn\u2019t wait, and neither should your global audience.',
+      showcase_label: 'See The Difference',
+      showcase_heading: 'Same creator. <em>Two languages.</em> One soul.',
+      showcase_subheading: 'Hear how Unmuted preserves personality across languages \u2014 not just words, but energy.',
+      demo_label_original: 'Original \u2014 English',
+      demo_label_unmuted: 'Unmuted \u2014 Spanish',
+      demo_label_youtube: 'YouTube Auto-Dub \u2014 Spanish',
+      demo_youtube_badge: 'Generic Auto-Dub',
+      demo_note_original: 'Natural, conversational, with that signature sarcastic warmth.',
+      demo_note_unmuted: 'Same tone, same pause, same personality. Just in Spanish.',
+      demo_note_youtube: 'Flat, robotic monotone. No personality, no pauses, no soul. Sounds like a GPS reading a script.',
+      testimonials_label: 'What Creators Say',
+      testimonials_heading: 'Voices that <em>trust us</em>',
+      testimonials_subheading: 'Real creators who expanded their reach without losing what makes them special.',
+      testimonial1_quote: '\u201CMy Portuguese audience grew 340% in three months. But the best part? They think I actually speak Portuguese. That\u2019s how natural it sounds.\u201D',
+      testimonial1_role: 'YouTube, 1.8M subscribers',
+      testimonial2_quote: '\u201CI was skeptical about AI dubbing. Then I heard my Japanese version and literally got chills. It was me \u2014 just in Japanese. Same laugh and everything.\u201D',
+      testimonial2_role: 'Podcast host, The Creative Hour',
+      testimonial3_quote: '\u201COther services made me sound corporate. Unmuted made me sound like me \u2014 just louder. My Spanish channel hit 500K in four months.\u201D',
+      testimonial3_role: 'Content creator & educator',
+      faq_label: 'FAQ',
+      faq_heading: 'Questions <em>we hear a lot</em>',
+      faq1_q: 'How does Unmuted preserve my voice?',
+      faq1_a: 'We use advanced AI voice cloning that analyzes your unique vocal signature \u2014 pitch, cadence, emotional patterns, even your pauses. The result isn\u2019t a generic voice reading a translation. It\u2019s your voice, speaking another language naturally.',
+      faq2_q: 'Is it really my voice, or just a similar AI voice?',
+      faq2_a: 'It\u2019s your voice. We clone your specific vocal characteristics \u2014 not approximate them with a generic model. Most creators tell us their audience can\u2019t tell it\u2019s dubbed. That\u2019s the standard we aim for with every project.',
+      faq3_q: 'What languages do you support?',
+      faq3_a: 'We currently support 30+ languages including Spanish, Portuguese, Japanese, Korean, German, French, Hindi, Arabic, Mandarin, Italian, and many more. We\u2019re constantly adding new languages based on creator demand.',
+      faq4_q: 'How long does it take?',
+      faq4_a: 'Standard turnaround is 24\u201348 hours for most projects. Rush delivery in as little as 12 hours is available. We know your content calendar matters \u2014 we work to match your pace.',
+      faq5_q: 'Do humans review the translations?',
+      faq5_a: 'Yes. AI handles the heavy lifting \u2014 about 90% of the work. But every project gets reviewed by native-speaking human editors who perfect cultural nuances, idioms, and emotional delivery. We believe in AI + human, not AI alone.',
+      faq6_q: 'Can I try it before committing?',
+      faq6_a: 'Absolutely. Contact us and we\u2019ll set up a free demo with your own content \u2014 hear yourself in another language and decide if it\u2019s right for you. No commitment required.',
+      cta_label: 'Ready?',
+      cta_heading: 'The world is <em>listening.</em>',
+      cta_subheading: 'Reach your global audience today. Same voice. Same personality. Every language.',
+      cta_demo: 'Book a Demo',
+      footer_desc: 'Your voice, every language. AI translation that preserves the humanity of every voice.',
+      footer_product: 'Product',
+      footer_company: 'Company',
+      footer_about: 'About',
+      footer_careers: 'Careers',
+      footer_contact_link: 'Contact',
+      footer_connect: 'Connect',
+      footer_copyright: '&copy; 2026 Unmuted. All rights reserved.',
+      footer_privacy: 'Privacy',
+      footer_terms: 'Terms',
+      page_title: 'Unmuted \u2014 Your Voice, Every Language',
+      page_description: 'AI translation that preserves your personality. Dub your content in 30+ languages while keeping your voice, your energy, your soul.'
+    },
+    es: {
+      nav_features: 'Características',
+      nav_difference: 'La Diferencia',
+      nav_faq: 'Preguntas Frecuentes',
+      nav_login: 'Iniciar Sesión',
+      nav_contact: 'Contáctanos',
+      hero_overline: 'Traducción IA Que Se Siente Humana',
+      hero_title: 'Tu voz, <em>en cada idioma.</em>',
+      hero_desc: 'Dobla tu contenido en más de 30 idiomas preservando tu personalidad, tu energía, tu alma. Porque el mundo merece escucharte.',
+      cta_contact: 'Contáctanos',
+      hero_secondary: 'Mira Cómo Funciona',
+      hero_scroll: 'Desliza',
+      logos_label: 'Con la confianza de creadores en todo el mundo',
+      problem_quote: '\u201CIntenté auto-doblar mis videos. Mi audiencia alemana dijo que sonaba como un GPS.\u201D',
+      problem_cite: '\u2014 Creador de YouTube, 2.4M suscriptores',
+      stat1_desc: 'de los espectadores abandonan cuando el doblaje suena robótico',
+      stat2_desc: 'personas a las que no puedes llegar solo en inglés',
+      stat3_desc: 'prefieren contenido en su idioma nativo',
+      stat4_desc: 'más barato que los estudios de doblaje tradicionales',
+      problem_label: 'El Problema',
+      problem_heading: 'Tienes una audiencia global. <em>Solo que aún no te entienden.</em>',
+      problem_text1: 'Las herramientas de doblaje gratuitas te hacen sonar como un robot. Los estudios profesionales cuestan una fortuna y tardan semanas. Te quedas eligiendo entre <strong>perder tu personalidad</strong> o <strong>perder tu audiencia global</strong>.',
+      problem_text2: 'Unmuted existe porque esa elección no debería existir. La IA hace el trabajo pesado \u2014 luego editores humanos perfeccionan el 10% que realmente importa: <strong>tu tono, tu humor, tu alma.</strong>',
+      features_label: 'Por Qué Unmuted',
+      features_heading: 'Traducimos personalidad, <em>no contenido.</em>',
+      features_subheading: 'Cada función está diseñada alrededor de una obsesión: hacer que suenes como tú mismo en cada idioma.',
+      feature1_title: 'Clonación de Voz',
+      feature1_desc: 'Tu voz, no una voz genérica de IA. Clonamos tu firma vocal única \u2014 tu tono, cadencia, calidez \u2014 y la llevamos a cada idioma.',
+      feature2_title: 'Preservación Emocional',
+      feature2_desc: 'La risa sigue siendo risa. El sarcasmo sigue siendo sarcasmo. Nuestra IA entiende no solo lo que dices, sino cómo y por qué lo dices.',
+      feature3_title: 'Revisión Humana',
+      feature3_desc: 'La IA hace el 90%. Nuestros editores nativos perfeccionan el resto \u2014 matices culturales, expresiones locales, las sutilezas que solo un oído humano capta.',
+      feature4_title: 'Sincronización Labial',
+      feature4_desc: 'Para contenido de video, sincronizamos los movimientos labiales con el audio traducido. Tu contenido doblado se ve tan natural como el original.',
+      feature5_title: 'Adaptación Cultural',
+      feature5_desc: 'No solo traducimos \u2014 adaptamos. Chistes, referencias, modismos: encontramos el equivalente cultural que resuena con cada audiencia.',
+      feature6_title: 'Entrega Rápida',
+      feature6_desc: 'La mayoría de los proyectos se entregan en 24\u201348 horas. Porque tu calendario de contenido no espera, y tu audiencia global tampoco debería.',
+      showcase_label: 'Mira La Diferencia',
+      showcase_heading: 'Mismo creador. <em>Dos idiomas.</em> Una alma.',
+      showcase_subheading: 'Escucha cómo Unmuted preserva la personalidad en todos los idiomas \u2014 no solo palabras, sino energía.',
+      demo_label_original: 'Original \u2014 Inglés',
+      demo_label_unmuted: 'Unmuted \u2014 Español',
+      demo_label_youtube: 'YouTube Auto-Dub \u2014 Español',
+      demo_youtube_badge: 'Auto-Dub Genérico',
+      demo_note_original: 'Natural, conversacional, con esa calidez sarcástica característica.',
+      demo_note_unmuted: 'Mismo tono, misma pausa, misma personalidad. Solo en español.',
+      demo_note_youtube: 'Monótono, plano y robótico. Sin personalidad, sin pausas, sin alma. Suena como un GPS leyendo un guión.',
+      testimonials_label: 'Lo Que Dicen Los Creadores',
+      testimonials_heading: 'Voces que <em>confían en nosotros</em>',
+      testimonials_subheading: 'Creadores reales que expandieron su alcance sin perder lo que los hace especiales.',
+      testimonial1_quote: '\u201CMi audiencia portuguesa creció un 340% en tres meses. Pero lo mejor es que piensan que realmente hablo portugués. Así de natural suena.\u201D',
+      testimonial1_role: 'YouTube, 1.8M suscriptores',
+      testimonial2_quote: '\u201CTenía dudas sobre el doblaje con IA. Luego escuché mi versión en japonés y literalmente se me puso la piel de gallina. Era yo \u2014 solo que en japonés. La misma risa y todo.\u201D',
+      testimonial2_role: 'Presentadora de podcast, The Creative Hour',
+      testimonial3_quote: '\u201COtros servicios me hacían sonar corporativo. Unmuted me hizo sonar como yo \u2014 solo más fuerte. Mi canal en español llegó a 500K en cuatro meses.\u201D',
+      testimonial3_role: 'Creador de contenido y educador',
+      faq_label: 'Preguntas Frecuentes',
+      faq_heading: 'Preguntas <em>que escuchamos mucho</em>',
+      faq1_q: '¿Cómo preserva Unmuted mi voz?',
+      faq1_a: 'Usamos clonación de voz avanzada con IA que analiza tu firma vocal única \u2014 tono, cadencia, patrones emocionales, incluso tus pausas. El resultado no es una voz genérica leyendo una traducción. Es tu voz, hablando otro idioma de forma natural.',
+      faq2_q: '¿Es realmente mi voz, o solo una voz de IA similar?',
+      faq2_a: 'Es tu voz. Clonamos tus características vocales específicas \u2014 no las aproximamos con un modelo genérico. La mayoría de los creadores nos dicen que su audiencia no nota que es un doblaje. Ese es el estándar que buscamos en cada proyecto.',
+      faq3_q: '¿Qué idiomas soportan?',
+      faq3_a: 'Actualmente soportamos más de 30 idiomas incluyendo español, portugués, japonés, coreano, alemán, francés, hindi, árabe, mandarín, italiano y muchos más. Constantemente agregamos nuevos idiomas según la demanda de los creadores.',
+      faq4_q: '¿Cuánto tiempo toma?',
+      faq4_a: 'El tiempo estándar de entrega es de 24\u201348 horas para la mayoría de los proyectos. Entrega urgente disponible en tan solo 12 horas. Sabemos que tu calendario de contenido importa \u2014 trabajamos para igualar tu ritmo.',
+      faq5_q: '¿Revisan humanos las traducciones?',
+      faq5_a: 'Sí. La IA hace el trabajo pesado \u2014 aproximadamente el 90% del trabajo. Pero cada proyecto es revisado por editores humanos nativos que perfeccionan los matices culturales, modismos y la entrega emocional. Creemos en IA + humanos, no en IA sola.',
+      faq6_q: '¿Puedo probarlo antes de comprometerme?',
+      faq6_a: 'Por supuesto. Contáctanos y te prepararemos una demostración gratuita con tu propio contenido \u2014 escúchate en otro idioma y decide si es lo correcto para ti. Sin compromiso.',
+      cta_label: '¿Listo?',
+      cta_heading: 'El mundo está <em>escuchando.</em>',
+      cta_subheading: 'Alcanza tu audiencia global hoy. Misma voz. Misma personalidad. Cada idioma.',
+      cta_demo: 'Reserva una Demo',
+      footer_desc: 'Tu voz, en cada idioma. Traducción con IA que preserva la humanidad de cada voz.',
+      footer_product: 'Producto',
+      footer_company: 'Empresa',
+      footer_about: 'Nosotros',
+      footer_careers: 'Carreras',
+      footer_contact_link: 'Contacto',
+      footer_connect: 'Conectar',
+      footer_copyright: '&copy; 2026 Unmuted. Todos los derechos reservados.',
+      footer_privacy: 'Privacidad',
+      footer_terms: 'Términos',
+      page_title: 'Unmuted \u2014 Tu Voz, En Cada Idioma',
+      page_description: 'Traducción con IA que preserva tu personalidad. Dobla tu contenido en más de 30 idiomas conservando tu voz, tu energía, tu alma.'
+    }
+  };
+
+  var currentLang = 'en';
+
+  function setLanguage(lang) {
+    var strings = translations[lang];
+    if (!strings) return;
+    currentLang = lang;
+
+    // Update all data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (strings[key] !== undefined) {
+        el.innerHTML = strings[key];
+      }
+    });
+
+    // Update page title and meta description
+    document.title = strings.page_title;
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', strings.page_description);
+
+    // Update html lang attribute
+    document.documentElement.lang = lang;
+
+    // Update toggle button states (both desktop and mobile)
+    document.querySelectorAll('.lang-toggle .lang-option').forEach(function(opt) {
+      if (opt.getAttribute('data-lang') === lang) {
+        opt.classList.add('active');
+      } else {
+        opt.classList.remove('active');
+      }
+    });
+
+    // Persist preference
+    try { localStorage.setItem('unmuted_lang', lang); } catch(e) {}
+  }
+
+  window.toggleLanguage = function() {
+    setLanguage(currentLang === 'en' ? 'es' : 'en');
+  };
+
+  // Restore saved language preference
+  try {
+    var saved = localStorage.getItem('unmuted_lang');
+    if (saved && translations[saved]) {
+      setLanguage(saved);
+    }
+  } catch(e) {}
 
 })();
 </script>
